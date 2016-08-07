@@ -1,0 +1,569 @@
+00:47:31 : 正在启动...
+00:47:31 : 启动倒计时 29 秒
+00:47:32 : 启动倒计时 28 秒
+00:47:33 : 启动倒计时 27 秒
+00:47:34 : 启动倒计时 26 秒
+00:47:35 : 启动倒计时 25 秒
+00:47:36 : 启动倒计时 24 秒
+00:47:37 : 启动倒计时 23 秒
+00:47:38 : 启动倒计时 22 秒
+00:47:39 : 启动倒计时 21 秒
+00:47:40 : 启动倒计时 20 秒
+00:47:41 : 启动倒计时 19 秒
+00:47:42 : 启动倒计时 18 秒
+00:47:43 : 启动倒计时 17 秒
+00:47:44 : 启动倒计时 16 秒
+00:47:45 : 启动倒计时 15 秒
+00:47:46 : 启动倒计时 14 秒
+00:47:47 : 启动倒计时 13 秒
+00:47:48 : 启动倒计时 12 秒
+00:47:49 : 启动倒计时 11 秒
+00:47:50 : 启动倒计时 10 秒
+00:47:51 : 启动倒计时 9 秒
+00:47:52 : 启动倒计时 8 秒
+00:47:53 : 启动倒计时 7 秒
+00:47:54 : 启动倒计时 6 秒
+00:47:55 : 启动倒计时 5 秒
+00:47:56 : 启动倒计时 4 秒
+00:47:57 : 启动倒计时 3 秒
+00:47:58 : 启动倒计时 2 秒
+00:47:59 : 启动倒计时 1 秒
+00:48:00 : 启动成功
+00:48:01 : php -m,已执行.status:0
+00:48:01 : php -i,已执行.status:0
+00:48:02 : taskid11 [Runtime:0.292518]
+00:48:02 : taskid22 [Runtime:0.293293]
+00:48:06 : php -m,已执行.status:0
+00:48:06 : taskid11 [Runtime:0.259354]
+00:48:10 : php -m,已执行.status:0
+00:48:11 : taskid11 [Runtime:0.231139]
+00:48:15 : php -m,已执行.status:0
+00:48:16 : taskid11 [Runtime:0.232015]
+00:48:20 : php -m,已执行.status:0
+00:48:21 : taskid11 [Runtime:0.233218]
+00:48:25 : php -m,已执行.status:0
+00:48:26 : taskid11 [Runtime:0.231769]
+00:48:30 : php -m,已执行.status:0
+00:48:31 : taskid11 [Runtime:0.231025]
+00:48:35 : php -m,已执行.status:0
+00:48:36 : taskid11 [Runtime:0.231086]
+00:48:40 : php -m,已执行.status:0
+00:48:41 : taskid11 [Runtime:0.232210]
+00:48:45 : php -m,已执行.status:0
+00:48:46 : taskid11 [Runtime:0.231361]
+00:48:50 : php -m,已执行.status:0
+00:48:51 : taskid11 [Runtime:0.230544]
+00:48:55 : php -m,已执行.status:0
+00:48:56 : taskid11 [Runtime:0.230827]
+00:49:02 : php -m,已执行.status:0
+00:49:02 : php -i,已执行.status:0
+00:49:02 : taskid11 [Runtime:0.263203]
+00:49:02 : taskid22 [Runtime:0.263797]
+00:49:06 : php -m,已执行.status:0
+00:49:07 : taskid11 [Runtime:0.233893]
+00:49:11 : php -m,已执行.status:0
+00:49:12 : taskid11 [Runtime:0.234494]
+00:49:16 : php -m,已执行.status:0
+00:49:17 : taskid11 [Runtime:0.230302]
+00:49:21 : php -m,已执行.status:0
+00:49:22 : taskid11 [Runtime:0.232785]
+00:49:26 : php -m,已执行.status:0
+00:49:27 : taskid11 [Runtime:0.232594]
+00:49:31 : php -m,已执行.status:0
+00:49:32 : taskid11 [Runtime:0.230510]
+00:49:36 : php -m,已执行.status:0
+00:49:37 : taskid11 [Runtime:0.239100]
+00:49:41 : php -m,已执行.status:0
+00:49:42 : taskid11 [Runtime:0.230799]
+00:49:46 : php -m,已执行.status:0
+00:49:47 : taskid11 [Runtime:0.229954]
+00:49:51 : php -m,已执行.status:0
+00:49:52 : taskid11 [Runtime:0.233613]
+00:49:56 : php -m,已执行.status:0
+00:49:57 : taskid11 [Runtime:0.231600]
+00:50:02 : php -m,已执行.status:0
+00:50:02 : php -i,已执行.status:0
+00:50:02 : taskid11 [Runtime:0.305892]
+00:50:02 : taskid22 [Runtime:0.307408]
+00:50:07 : php -m,已执行.status:0
+00:50:07 : taskid11 [Runtime:0.249143]
+00:50:11 : php -m,已执行.status:0
+00:50:12 : taskid11 [Runtime:0.231855]
+00:50:16 : php -m,已执行.status:0
+00:50:17 : taskid11 [Runtime:0.231197]
+00:50:21 : php -m,已执行.status:0
+00:50:22 : taskid11 [Runtime:0.234943]
+00:50:26 : php -m,已执行.status:0
+00:50:27 : taskid11 [Runtime:0.229948]
+00:50:31 : php -m,已执行.status:0
+00:50:32 : taskid11 [Runtime:0.230917]
+00:50:36 : php -m,已执行.status:0
+00:50:37 : taskid11 [Runtime:0.231619]
+00:50:41 : php -m,已执行.status:0
+00:50:42 : taskid11 [Runtime:0.234145]
+00:50:46 : php -m,已执行.status:0
+00:50:47 : taskid11 [Runtime:0.232893]
+00:50:51 : php -m,已执行.status:0
+00:50:52 : taskid11 [Runtime:0.235551]
+00:50:56 : php -m,已执行.status:0
+00:50:57 : taskid11 [Runtime:0.231407]
+00:51:02 : php -m,已执行.status:0
+00:51:02 : php -i,已执行.status:0
+00:51:02 : taskid11 [Runtime:0.280826]
+00:51:02 : taskid22 [Runtime:0.281719]
+00:51:06 : php -m,已执行.status:0
+00:51:07 : taskid11 [Runtime:0.233775]
+00:51:11 : php -m,已执行.status:0
+00:51:12 : taskid11 [Runtime:0.232323]
+00:51:16 : php -m,已执行.status:0
+00:51:17 : taskid11 [Runtime:0.232472]
+00:51:21 : php -m,已执行.status:0
+00:51:22 : taskid11 [Runtime:0.246258]
+00:51:26 : php -m,已执行.status:0
+00:51:27 : taskid11 [Runtime:0.234055]
+00:51:31 : php -m,已执行.status:0
+00:51:32 : taskid11 [Runtime:0.233480]
+00:51:36 : php -m,已执行.status:0
+00:51:37 : taskid11 [Runtime:0.236784]
+00:51:41 : php -m,已执行.status:0
+00:51:42 : taskid11 [Runtime:0.232582]
+00:51:46 : php -m,已执行.status:0
+00:51:47 : taskid11 [Runtime:0.231771]
+00:51:51 : php -m,已执行.status:0
+00:51:52 : taskid11 [Runtime:0.234704]
+00:51:56 : php -m,已执行.status:0
+00:51:57 : taskid11 [Runtime:0.234277]
+00:52:02 : php -m,已执行.status:0
+00:52:02 : php -i,已执行.status:0
+00:52:02 : taskid11 [Runtime:0.256503]
+00:52:02 : taskid22 [Runtime:0.257433]
+00:52:06 : php -m,已执行.status:0
+00:52:07 : taskid11 [Runtime:0.230966]
+00:52:11 : php -m,已执行.status:0
+00:52:12 : taskid11 [Runtime:0.236952]
+00:52:16 : php -m,已执行.status:0
+00:52:17 : taskid11 [Runtime:0.231102]
+00:52:21 : php -m,已执行.status:0
+00:52:22 : taskid11 [Runtime:0.234042]
+00:52:26 : php -m,已执行.status:0
+00:52:27 : taskid11 [Runtime:0.232694]
+00:52:31 : php -m,已执行.status:0
+00:52:32 : taskid11 [Runtime:0.232212]
+00:52:36 : php -m,已执行.status:0
+00:52:37 : taskid11 [Runtime:0.230553]
+00:52:41 : php -m,已执行.status:0
+00:52:42 : taskid11 [Runtime:0.230331]
+00:52:46 : php -m,已执行.status:0
+00:52:47 : taskid11 [Runtime:0.231985]
+00:52:51 : php -m,已执行.status:0
+00:52:52 : taskid11 [Runtime:0.233027]
+00:52:56 : php -m,已执行.status:0
+00:52:57 : taskid11 [Runtime:0.231693]
+00:53:02 : php -i,已执行.status:0
+00:53:02 : php -m,已执行.status:0
+00:53:02 : taskid11 [Runtime:0.265792]
+00:53:02 : taskid22 [Runtime:0.267254]
+00:53:06 : php -m,已执行.status:0
+00:53:07 : taskid11 [Runtime:0.232025]
+00:53:11 : php -m,已执行.status:0
+00:53:12 : taskid11 [Runtime:0.234168]
+00:53:16 : php -m,已执行.status:0
+00:53:17 : taskid11 [Runtime:0.232434]
+00:53:21 : php -m,已执行.status:0
+00:53:22 : taskid11 [Runtime:0.232288]
+00:53:26 : php -m,已执行.status:0
+00:53:27 : taskid11 [Runtime:0.232628]
+00:53:31 : php -m,已执行.status:0
+00:53:32 : taskid11 [Runtime:0.231443]
+00:53:36 : php -m,已执行.status:0
+00:53:37 : taskid11 [Runtime:0.234076]
+00:53:41 : php -m,已执行.status:0
+00:53:42 : taskid11 [Runtime:0.234627]
+00:53:46 : php -m,已执行.status:0
+00:53:47 : taskid11 [Runtime:0.236733]
+00:53:51 : php -m,已执行.status:0
+00:53:52 : taskid11 [Runtime:0.234873]
+00:53:56 : php -m,已执行.status:0
+00:53:57 : taskid11 [Runtime:0.232540]
+00:54:02 : php -m,已执行.status:0
+00:54:02 : php -i,已执行.status:0
+00:54:02 : taskid11 [Runtime:0.517907]
+00:54:02 : taskid22 [Runtime:0.519927]
+00:54:06 : php -m,已执行.status:0
+00:54:07 : taskid11 [Runtime:0.239231]
+00:54:11 : php -m,已执行.status:0
+00:54:12 : taskid11 [Runtime:0.233236]
+00:54:16 : php -m,已执行.status:0
+00:54:17 : taskid11 [Runtime:0.233288]
+00:54:21 : php -m,已执行.status:0
+00:54:22 : taskid11 [Runtime:0.232023]
+00:54:26 : php -m,已执行.status:0
+00:54:27 : taskid11 [Runtime:0.231833]
+00:54:31 : php -m,已执行.status:0
+00:54:32 : taskid11 [Runtime:0.234091]
+00:54:36 : php -m,已执行.status:0
+00:54:37 : taskid11 [Runtime:0.233277]
+00:54:41 : php -m,已执行.status:0
+00:54:42 : taskid11 [Runtime:0.232125]
+00:54:46 : php -m,已执行.status:0
+00:54:47 : taskid11 [Runtime:0.232106]
+00:54:51 : php -m,已执行.status:0
+00:54:52 : taskid11 [Runtime:0.233239]
+00:54:56 : php -m,已执行.status:0
+00:54:57 : taskid11 [Runtime:0.230282]
+00:55:02 : php -i,已执行.status:0
+00:55:02 : php -m,已执行.status:0
+00:55:02 : taskid11 [Runtime:0.425568]
+00:55:02 : taskid22 [Runtime:0.425956]
+00:55:06 : php -m,已执行.status:0
+00:55:07 : taskid11 [Runtime:0.232129]
+00:55:11 : php -m,已执行.status:0
+00:55:12 : taskid11 [Runtime:0.234508]
+00:55:16 : php -m,已执行.status:0
+00:55:17 : taskid11 [Runtime:0.235221]
+00:55:21 : php -m,已执行.status:0
+00:55:22 : taskid11 [Runtime:0.230184]
+00:55:26 : php -m,已执行.status:0
+00:55:27 : taskid11 [Runtime:0.230305]
+00:55:31 : php -m,已执行.status:0
+00:55:32 : taskid11 [Runtime:0.232119]
+00:55:36 : php -m,已执行.status:0
+00:55:37 : taskid11 [Runtime:0.230777]
+00:55:41 : php -m,已执行.status:0
+00:55:42 : taskid11 [Runtime:0.231478]
+00:55:46 : php -m,已执行.status:0
+00:55:47 : taskid11 [Runtime:0.233857]
+00:55:51 : php -m,已执行.status:0
+00:55:52 : taskid11 [Runtime:0.229917]
+00:55:56 : php -m,已执行.status:0
+00:55:57 : taskid11 [Runtime:0.232284]
+00:56:02 : php -i,已执行.status:0
+00:56:02 : php -m,已执行.status:0
+00:56:02 : taskid11 [Runtime:0.380139]
+00:56:02 : taskid22 [Runtime:0.381237]
+00:56:03 : 收到退出信号,退出主进程
+
+00:56:15 : 正在启动...
+00:56:15 : 启动倒计时 45 秒
+00:56:16 : 启动倒计时 44 秒
+00:56:17 : 启动倒计时 43 秒
+00:56:18 : 启动倒计时 42 秒
+00:56:19 : 启动倒计时 41 秒
+00:56:20 : 启动倒计时 40 秒
+00:56:21 : 启动倒计时 39 秒
+00:56:22 : 启动倒计时 38 秒
+00:56:23 : 启动倒计时 37 秒
+00:56:24 : 启动倒计时 36 秒
+00:56:25 : 启动倒计时 35 秒
+00:56:26 : 启动倒计时 34 秒
+00:56:27 : 启动倒计时 33 秒
+00:56:28 : 启动倒计时 32 秒
+00:56:29 : 启动倒计时 31 秒
+00:56:30 : 启动倒计时 30 秒
+00:56:31 : 启动倒计时 29 秒
+00:56:32 : 启动倒计时 28 秒
+00:56:33 : 启动倒计时 27 秒
+00:56:34 : 启动倒计时 26 秒
+00:56:35 : 启动倒计时 25 秒
+00:56:36 : 启动倒计时 24 秒
+00:56:37 : 启动倒计时 23 秒
+00:56:38 : 启动倒计时 22 秒
+00:56:39 : 启动倒计时 21 秒
+00:56:40 : 启动倒计时 20 秒
+00:56:41 : 启动倒计时 19 秒
+00:56:42 : 启动倒计时 18 秒
+00:56:43 : 启动倒计时 17 秒
+00:56:44 : 启动倒计时 16 秒
+00:56:45 : 启动倒计时 15 秒
+00:56:46 : 启动倒计时 14 秒
+00:56:47 : 启动倒计时 13 秒
+00:56:48 : 启动倒计时 12 秒
+00:56:49 : 启动倒计时 11 秒
+00:56:50 : 启动倒计时 10 秒
+00:56:51 : 启动倒计时 9 秒
+00:56:52 : 启动倒计时 8 秒
+00:56:53 : 启动倒计时 7 秒
+00:56:54 : 启动倒计时 6 秒
+00:56:55 : 启动倒计时 5 秒
+00:56:56 : 启动倒计时 4 秒
+00:56:57 : 启动倒计时 3 秒
+00:56:58 : 启动倒计时 2 秒
+00:56:59 : 启动倒计时 1 秒
+00:57:00 : 启动成功
+00:57:01 : php -i,已执行.status:0
+00:57:01 : php -m,已执行.status:0
+00:57:01 : {"29206":{"start":1470329821.7102,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":8,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29206}},"29207":{"start":1470329821.7106,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":10,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29207}}}
+00:57:01 : taskid11 [Runtime:0.258946]
+00:57:01 : {"29207":{"start":1470329821.7106,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":10,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29207}}}
+00:57:01 : taskid22 [Runtime:0.261350]
+00:57:05 : php -m,已执行.status:0
+00:57:06 : {"29266":{"start":1470329825.9061,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":14,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29266}}}
+00:57:06 : taskid11 [Runtime:0.231903]
+00:57:10 : php -m,已执行.status:0
+00:57:11 : {"29268":{"start":1470329830.9096,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":20,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29268}}}
+00:57:11 : taskid11 [Runtime:0.235150]
+00:57:15 : php -m,已执行.status:0
+00:57:16 : {"29270":{"start":1470329835.9073,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":26,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29270}}}
+00:57:16 : taskid11 [Runtime:0.244228]
+00:57:20 : php -m,已执行.status:0
+00:57:21 : {"29272":{"start":1470329840.9055,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":32,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29272}}}
+00:57:21 : taskid11 [Runtime:0.236319]
+00:57:25 : php -m,已执行.status:0
+00:57:26 : {"29274":{"start":1470329845.904,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":38,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29274}}}
+00:57:26 : taskid11 [Runtime:0.232664]
+00:57:30 : php -m,已执行.status:0
+00:57:31 : {"29276":{"start":1470329850.9049,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":44,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29276}}}
+00:57:31 : taskid11 [Runtime:0.233902]
+00:57:35 : php -m,已执行.status:0
+00:57:36 : {"29278":{"start":1470329855.9059,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":50,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29278}}}
+00:57:36 : taskid11 [Runtime:0.233632]
+00:57:40 : php -m,已执行.status:0
+00:57:41 : {"29280":{"start":1470329860.9059,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":56,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29280}}}
+00:57:41 : taskid11 [Runtime:0.234545]
+00:57:45 : php -m,已执行.status:0
+00:57:46 : {"29282":{"start":1470329865.9053,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":62,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29282}}}
+00:57:46 : taskid11 [Runtime:0.234966]
+00:57:50 : php -m,已执行.status:0
+00:57:51 : {"29284":{"start":1470329870.907,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":68,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29284}}}
+00:57:51 : taskid11 [Runtime:0.233160]
+00:57:55 : php -m,已执行.status:0
+00:57:56 : {"29286":{"start":1470329875.9045,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":74,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29286}}}
+00:57:56 : taskid11 [Runtime:0.233374]
+00:58:02 : php -m,已执行.status:0
+00:58:02 : php -i,已执行.status:0
+00:58:02 : {"29318":{"start":1470329882.1076,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":82,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29318}},"29319":{"start":1470329882.1076,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":84,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29319}}}
+00:58:02 : taskid11 [Runtime:0.258107]
+00:58:02 : {"29319":{"start":1470329882.1076,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":84,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29319}}}
+00:58:02 : taskid22 [Runtime:0.262893]
+00:58:06 : php -m,已执行.status:0
+00:58:07 : {"29350":{"start":1470329886.9055,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":89,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29350}}}
+00:58:07 : taskid11 [Runtime:0.233182]
+00:58:11 : php -m,已执行.status:0
+00:58:12 : {"29352":{"start":1470329891.906,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":95,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29352}}}
+00:58:12 : taskid11 [Runtime:0.249119]
+00:58:16 : php -m,已执行.status:0
+00:58:17 : {"29354":{"start":1470329896.9053,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":101,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29354}}}
+00:58:17 : taskid11 [Runtime:0.244378]
+00:58:21 : php -m,已执行.status:0
+00:58:22 : {"29356":{"start":1470329901.9045,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":107,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29356}}}
+00:58:22 : taskid11 [Runtime:0.235688]
+00:58:26 : php -m,已执行.status:0
+00:58:27 : {"29358":{"start":1470329906.9051,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":113,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29358}}}
+00:58:27 : taskid11 [Runtime:0.236543]
+00:58:31 : php -m,已执行.status:0
+00:58:32 : {"29360":{"start":1470329911.9045,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":119,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29360}}}
+00:58:32 : taskid11 [Runtime:0.239524]
+00:58:36 : php -m,已执行.status:0
+00:58:37 : {"29362":{"start":1470329916.9057,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":125,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29362}}}
+00:58:37 : taskid11 [Runtime:0.233938]
+00:58:41 : php -m,已执行.status:0
+00:58:42 : {"29364":{"start":1470329921.906,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":131,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29364}}}
+00:58:42 : taskid11 [Runtime:0.234025]
+00:58:46 : php -m,已执行.status:0
+00:58:47 : {"29366":{"start":1470329926.9061,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":137,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29366}}}
+00:58:47 : taskid11 [Runtime:0.235258]
+00:58:51 : php -m,已执行.status:0
+00:58:52 : {"29368":{"start":1470329931.9055,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":143,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29368}}}
+00:58:52 : taskid11 [Runtime:0.233697]
+00:58:56 : php -m,已执行.status:0
+00:58:57 : {"29370":{"start":1470329936.9053,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":149,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29370}}}
+00:58:57 : taskid11 [Runtime:0.236391]
+00:59:02 : php -i,已执行.status:0
+00:59:02 : php -m,已执行.status:0
+00:59:02 : {"29401":{"start":1470329942.1074,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":156,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29401}},"29402":{"start":1470329942.1078,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":158,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29402}}}
+00:59:02 : taskid11 [Runtime:0.258455]
+00:59:02 : {"29402":{"start":1470329942.1078,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":158,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29402}}}
+00:59:02 : taskid22 [Runtime:0.261215]
+00:59:06 : php -m,已执行.status:0
+00:59:07 : {"29434":{"start":1470329946.9058,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":163,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29434}}}
+00:59:07 : taskid11 [Runtime:0.235002]
+00:59:11 : php -m,已执行.status:0
+00:59:12 : {"29436":{"start":1470329951.9051,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":169,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29436}}}
+00:59:12 : taskid11 [Runtime:0.234651]
+00:59:16 : php -m,已执行.status:0
+00:59:17 : {"29438":{"start":1470329956.9062,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":175,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29438}}}
+00:59:17 : taskid11 [Runtime:0.243636]
+00:59:21 : php -m,已执行.status:0
+00:59:22 : {"29440":{"start":1470329961.905,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":181,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29440}}}
+00:59:22 : taskid11 [Runtime:0.233471]
+00:59:26 : php -m,已执行.status:0
+00:59:27 : {"29442":{"start":1470329966.9064,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":187,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29442}}}
+00:59:27 : taskid11 [Runtime:0.241590]
+00:59:31 : php -m,已执行.status:0
+00:59:32 : {"29444":{"start":1470329971.9053,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":193,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29444}}}
+00:59:32 : taskid11 [Runtime:0.233057]
+00:59:36 : php -m,已执行.status:0
+00:59:37 : {"29446":{"start":1470329976.9063,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":199,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29446}}}
+00:59:37 : taskid11 [Runtime:0.233278]
+00:59:41 : php -m,已执行.status:0
+00:59:42 : {"29448":{"start":1470329981.906,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":205,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29448}}}
+00:59:42 : taskid11 [Runtime:0.236332]
+00:59:46 : php -m,已执行.status:0
+00:59:47 : {"29450":{"start":1470329986.9059,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":211,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29450}}}
+00:59:47 : taskid11 [Runtime:0.234813]
+00:59:51 : php -m,已执行.status:0
+00:59:52 : {"29452":{"start":1470329991.9061,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":217,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29452}}}
+00:59:52 : taskid11 [Runtime:0.234878]
+00:59:56 : php -m,已执行.status:0
+00:59:57 : {"29454":{"start":1470329996.9052,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":223,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29454}}}
+00:59:57 : taskid11 [Runtime:0.243737]
+01:00:02 : php -i,已执行.status:0
+01:00:02 : php -m,已执行.status:0
+01:00:02 : {"29485":{"start":1470330002.109,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":230,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29485}},"29486":{"start":1470330002.1094,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":232,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29486}}}
+01:00:02 : taskid11 [Runtime:0.340363]
+01:00:02 : {"29486":{"start":1470330002.1094,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":232,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29486}}}
+01:00:02 : taskid22 [Runtime:0.343624]
+01:00:06 : php -m,已执行.status:0
+01:00:07 : {"29517":{"start":1470330006.9044,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":237,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29517}}}
+01:00:07 : taskid11 [Runtime:0.234990]
+01:00:11 : php -m,已执行.status:0
+01:00:12 : {"29519":{"start":1470330011.9056,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":243,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29519}}}
+01:00:12 : taskid11 [Runtime:0.235710]
+01:00:16 : php -m,已执行.status:0
+01:00:17 : {"29522":{"start":1470330016.9057,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":249,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29522}}}
+01:00:17 : taskid11 [Runtime:0.236615]
+01:00:21 : php -m,已执行.status:0
+01:00:22 : {"29524":{"start":1470330021.9052,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":255,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29524}}}
+01:00:22 : taskid11 [Runtime:0.238381]
+01:00:26 : php -m,已执行.status:0
+01:00:27 : {"29526":{"start":1470330026.9045,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":261,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29526}}}
+01:00:27 : taskid11 [Runtime:0.233717]
+01:00:31 : php -m,已执行.status:0
+01:00:32 : {"29528":{"start":1470330031.906,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":267,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29528}}}
+01:00:32 : taskid11 [Runtime:0.236508]
+01:00:36 : php -m,已执行.status:0
+01:00:37 : {"29531":{"start":1470330036.9063,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":273,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29531}}}
+01:00:37 : taskid11 [Runtime:0.233378]
+01:00:41 : php -m,已执行.status:0
+01:00:42 : {"29533":{"start":1470330041.906,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":279,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29533}}}
+01:00:42 : taskid11 [Runtime:0.234513]
+01:00:44 : 进程29204已结束
+01:00:44 : 收到退出信号,退出主进程
+
+01:00:45 : 正在启动...
+01:00:45 : 启动倒计时 15 秒
+01:00:46 : 启动倒计时 14 秒
+01:00:47 : 启动倒计时 13 秒
+01:00:48 : 启动倒计时 12 秒
+01:00:49 : 启动倒计时 11 秒
+01:00:50 : 启动倒计时 10 秒
+01:00:51 : 启动倒计时 9 秒
+01:00:52 : 启动倒计时 8 秒
+01:00:53 : 启动倒计时 7 秒
+01:00:54 : 启动倒计时 6 秒
+01:00:55 : 启动倒计时 5 秒
+01:00:56 : 启动倒计时 4 秒
+01:00:57 : 启动倒计时 3 秒
+01:00:58 : 启动倒计时 2 秒
+01:00:59 : 启动倒计时 1 秒
+01:01:00 : 启动成功
+01:01:01 : php -m,已执行.status:0
+01:01:01 : php -i,已执行.status:0
+01:01:01 : {"29538":{"start":1470330061.5513,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":8,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29538}},"29539":{"start":1470330061.5518,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":10,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29539}}}
+01:01:01 : taskid11 [Runtime:0.250363]
+01:01:01 : {"29539":{"start":1470330061.5518,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":10,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29539}}}
+01:01:01 : taskid22 [Runtime:0.253004]
+01:01:05 : php -m,已执行.status:0
+01:01:05 : {"29611":{"start":1470330065.7437,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":14,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29611}}}
+01:01:05 : taskid11 [Runtime:0.233246]
+01:01:10 : php -m,已执行.status:0
+01:01:10 : {"29613":{"start":1470330070.7434,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":20,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29613}}}
+01:01:10 : taskid11 [Runtime:0.231785]
+01:01:15 : php -m,已执行.status:0
+01:01:15 : {"29615":{"start":1470330075.743,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":26,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29615}}}
+01:01:15 : taskid11 [Runtime:0.235126]
+01:01:20 : php -m,已执行.status:0
+01:01:20 : {"29617":{"start":1470330080.7429,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":32,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29617}}}
+01:01:20 : taskid11 [Runtime:0.232565]
+01:01:25 : php -m,已执行.status:0
+01:01:25 : {"29619":{"start":1470330085.746,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":38,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29619}}}
+01:01:25 : taskid11 [Runtime:0.232764]
+01:01:30 : php -m,已执行.status:0
+01:01:30 : {"29621":{"start":1470330090.7438,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":44,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29621}}}
+01:01:30 : taskid11 [Runtime:0.232670]
+01:01:35 : php -m,已执行.status:0
+01:01:35 : {"29623":{"start":1470330095.7436,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":50,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29623}}}
+01:01:35 : taskid11 [Runtime:0.233175]
+01:01:40 : php -m,已执行.status:0
+01:01:40 : {"29625":{"start":1470330100.7448,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":56,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29625}}}
+01:01:40 : taskid11 [Runtime:0.233386]
+01:01:45 : php -m,已执行.status:0
+01:01:45 : {"29627":{"start":1470330105.7434,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":62,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29627}}}
+01:01:45 : taskid11 [Runtime:0.231938]
+01:01:50 : php -m,已执行.status:0
+01:01:50 : {"29629":{"start":1470330110.7451,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":68,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29629}}}
+01:01:50 : taskid11 [Runtime:0.232277]
+01:01:55 : php -m,已执行.status:0
+01:01:55 : {"29631":{"start":1470330115.7447,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":74,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29631}}}
+01:01:55 : taskid11 [Runtime:0.233466]
+01:02:01 : php -m,已执行.status:0
+01:02:01 : php -i,已执行.status:0
+01:02:02 : {"29662":{"start":1470330121.9453,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":82,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29662}},"29663":{"start":1470330121.9458,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":84,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29663}}}
+01:02:02 : taskid11 [Runtime:0.254918]
+01:02:02 : {"29663":{"start":1470330121.9458,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":84,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29663}}}
+01:02:02 : taskid22 [Runtime:0.257280]
+01:02:05 : php -m,已执行.status:0
+01:02:05 : {"29693":{"start":1470330125.744,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":88,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29693}}}
+01:02:05 : taskid11 [Runtime:0.234533]
+01:02:10 : php -m,已执行.status:0
+01:02:10 : {"29695":{"start":1470330130.7438,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":94,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29695}}}
+01:02:10 : taskid11 [Runtime:0.237419]
+01:02:15 : php -m,已执行.status:0
+01:02:15 : {"29697":{"start":1470330135.7452,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":100,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29697}}}
+01:02:15 : taskid11 [Runtime:0.237759]
+01:02:20 : php -m,已执行.status:0
+01:02:20 : {"29699":{"start":1470330140.7413,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":106,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29699}}}
+01:02:20 : taskid11 [Runtime:0.233007]
+01:02:25 : php -m,已执行.status:0
+01:02:25 : {"29701":{"start":1470330145.744,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":112,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29701}}}
+01:02:25 : taskid11 [Runtime:0.230930]
+01:02:30 : php -m,已执行.status:0
+01:02:30 : {"29703":{"start":1470330150.7424,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":118,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29703}}}
+01:02:30 : taskid11 [Runtime:0.234560]
+01:02:35 : php -m,已执行.status:0
+01:02:35 : {"29705":{"start":1470330155.7437,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":124,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29705}}}
+01:02:35 : taskid11 [Runtime:0.234307]
+01:02:40 : php -m,已执行.status:0
+01:02:40 : {"29707":{"start":1470330160.7428,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":130,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29707}}}
+01:02:40 : taskid11 [Runtime:0.235619]
+01:02:45 : php -m,已执行.status:0
+01:02:45 : {"29709":{"start":1470330165.7429,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":136,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29709}}}
+01:02:45 : taskid11 [Runtime:0.237820]
+01:02:50 : php -m,已执行.status:0
+01:02:50 : {"29711":{"start":1470330170.7439,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":142,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29711}}}
+01:02:50 : taskid11 [Runtime:0.236709]
+01:02:55 : php -m,已执行.status:0
+01:02:55 : {"29713":{"start":1470330175.744,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":148,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29713}}}
+01:02:55 : taskid11 [Runtime:0.234229]
+01:03:01 : php -m,已执行.status:0
+01:03:01 : php -i,已执行.status:0
+01:03:02 : {"29744":{"start":1470330181.944,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":156,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29744}},"29745":{"start":1470330181.9445,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":158,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29745}}}
+01:03:02 : taskid11 [Runtime:0.256590]
+01:03:02 : {"29745":{"start":1470330181.9445,"id":"taskid22","task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"},"type":"crontab","process":{"pipe":158,"callback":[{"task":{"taskname":"taskname2","rule":"*\/60 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -i"},"id":"taskid22"}},"run"],"pid":29745}}}
+01:03:02 : taskid22 [Runtime:0.259074]
+01:03:05 : php -m,已执行.status:0
+01:03:05 : {"29775":{"start":1470330185.7442,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":162,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29775}}}
+01:03:05 : taskid11 [Runtime:0.235287]
+01:03:10 : php -m,已执行.status:0
+01:03:10 : {"29777":{"start":1470330190.7448,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":168,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29777}}}
+01:03:10 : taskid11 [Runtime:0.237215]
+01:03:15 : php -m,已执行.status:0
+01:03:15 : {"29779":{"start":1470330195.7421,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":174,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29779}}}
+01:03:15 : taskid11 [Runtime:0.232577]
+01:03:20 : php -m,已执行.status:0
+01:03:20 : {"29781":{"start":1470330200.7435,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":180,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29781}}}
+01:03:20 : taskid11 [Runtime:0.233544]
+01:03:25 : php -m,已执行.status:0
+01:03:25 : {"29783":{"start":1470330205.7428,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":186,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29783}}}
+01:03:25 : taskid11 [Runtime:0.234540]
+01:03:30 : php -m,已执行.status:0
+01:03:31 : {"29786":{"start":1470330210.7466,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":192,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29786}}}
+01:03:31 : taskid11 [Runtime:0.264982]
+01:03:35 : php -m,已执行.status:0
+01:03:35 : {"29788":{"start":1470330215.7421,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":198,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29788}}}
+01:03:35 : taskid11 [Runtime:0.233120]
+01:03:40 : php -m,已执行.status:0
+01:03:40 : {"29791":{"start":1470330220.7429,"id":"taskid11","task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"},"type":"crontab","process":{"pipe":204,"callback":[{"task":{"taskname":"taskname1","rule":"*\/5 * * * * *","unique":"2","execute":"Cmd","args":{"cmd":"php -m"},"id":"taskid11"}},"run"],"pid":29791}}}
+01:03:40 : taskid11 [Runtime:0.244109]
+01:03:41 : 收到退出信号,退出主进程
+

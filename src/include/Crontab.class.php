@@ -224,6 +224,8 @@ class Crontab
             while ($ret = swoole_process::wait(false)) {
                 $pid = $ret['pid'];
                 if (isset(self::$task_list[$pid])) {
+					//print_r( self::$task_list );
+                    Main::log_write( json_encode( self::$task_list ) );
                     $task = self::$task_list[$pid];
                     if ($task["type"] == "crontab") {
                         $end = microtime(true);

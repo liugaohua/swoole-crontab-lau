@@ -42,7 +42,7 @@ class Worker
         $this->workers["redis"] = $redis;
         $process = new swoole_process(array($this, "run"));
         if (!($pid = $process->start())) {
-
+            Main::log_write("---------------------------");
         }
         //记录当前任务
         Crontab::$task_list[$pid] = array(
@@ -53,6 +53,7 @@ class Worker
             "type" => "worker",
             "process"=>$process
         );
+        Main::log_write( Crontab::$task_list[$pid] );
     }
 
     /**

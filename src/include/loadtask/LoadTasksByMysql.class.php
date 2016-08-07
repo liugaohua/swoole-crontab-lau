@@ -66,7 +66,7 @@ class LoadTasksByMysql
     protected function loadTasks()
     {
         $db =$this->connectDB();
-        $data = $db->queryAll("select * from `crontab` where `status`=0");
+        $data = $db->queryAll("select * from `crontab` where `status`=1");
         $db = null;
         $this->oriTasks = $data;
     }

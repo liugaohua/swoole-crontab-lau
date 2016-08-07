@@ -16,7 +16,7 @@ class ReadBookWorker extends WorkerBase
      */
     public function Run($task)
     {
-        echo $task."\n";
+        echo $task.".................\n";
         if($task == "exit"){
             $this->_exit(2);
         }
