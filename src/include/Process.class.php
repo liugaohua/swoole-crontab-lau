@@ -47,7 +47,7 @@ class Process
     public function run($worker)
     {
         $class = $this->task["execute"];
-        $worker->name("lzm_crontab_" . $class . "_" . $this->task["id"]);
+        $worker->name("lau_crontab_" . $class . "_" . $this->task["id"]);
         $this->autoload($class);
         $c = new $class;
         $c->worker = $worker;

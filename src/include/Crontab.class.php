@@ -8,7 +8,7 @@
  */
 class Crontab
 {
-    static public $process_name = "lzm_Master";//进程名称
+    static public $process_name = "lau_Cron_Master";//进程名称
     static public $pid_file;                    //pid文件位置
     static public $log_path;                    //日志文件位置
     static public $taskParams;                 //获取task任务参数
@@ -16,7 +16,7 @@ class Crontab
     static public $tasksHandle;                 //获取任务的句柄
     static public $daemon = false;              //运行模式
     static private $pid;                        //pid
-    static public $checktime = true;           //精确对时
+    static public $checktime = false;           //精确对时
     static public $task_list = array();
     static public $unique_list = array();
     static public $worker = false;
@@ -63,6 +63,7 @@ class Crontab
         self::daemon();
         self::set_process_name();
         self::run();
+        self::httpServer();
         Main::log_write("启动成功");
     }
 
@@ -85,6 +86,39 @@ class Crontab
             self::exit2p("Please install swoole extension.http://www.swoole.com/");
         }
         swoole_set_process_name(self::$process_name);
+    }
+
+    static private function httpServer()
+    {
+        $http = new swoole_http_server("0.0.0.0",9502,SWOOLE_BASE);
+
+        $taskList = self::$task_list;
+        $http->on('request',function($request,$response) use ( $taskList ){
+            Main::log( 'http', json_encode( $taskList ) );
+            //$response->end( json_encode( $request ));
+            $response->end( json_encode( $taskList ));
+        });
+        //当管理进程启动时调用它，函数原型：
+        $http->on ('ManagerStart', function (swoole_server $serv){
+        // 在这个回调函数中可以修改管理进程的名称。
+        // 注意manager进程中不能添加定时器
+        // manager进程中可以调用task功能
+            echo PHP_EOL; 
+            echo "ManagerStart"; 
+            echo PHP_EOL;
+        });
+
+        //当管理进程结束时调用它，函数原型：
+        $http->on ('ManagerStop', function (swoole_server $serv){
+            echo PHP_EOL; 
+            echo "ManagerStop"; 
+            echo PHP_EOL;
+        });
+
+        $http->on('Timer', function(){}
+    );
+
+        $http->start();
     }
 
     /**
@@ -160,9 +194,11 @@ class Crontab
         $config = self::$tasksHandle->getTasks(self::$taskParams);
         foreach ($config as $id => $task) {
             $ret = ParseCrontab::parse($task["rule"], $time);
+            Main::debug_write( var_export( $ret , true ) );
             if ($ret === false) {
                 Main::log_write(ParseCrontab::$error);
             } elseif (!empty($ret)) {
+                Main::log_write( __FUNCTION__ . ': ' . json_encode( $ret ) );
                 TickTable::set_task($ret, array_merge($task, array("id" => $id)));
             }
         }
@@ -224,8 +260,7 @@ class Crontab
             while ($ret = swoole_process::wait(false)) {
                 $pid = $ret['pid'];
                 if (isset(self::$task_list[$pid])) {
-					//print_r( self::$task_list );
-                    Main::log_write( json_encode( self::$task_list ) );
+                    Main::log_write( __FUNCTION__ .': '. json_encode( self::$task_list ) );
                     $task = self::$task_list[$pid];
                     if ($task["type"] == "crontab") {
                         $end = microtime(true);
@@ -249,8 +284,10 @@ class Crontab
                 }
             };
         });
-        swoole_process::signal(SIGUSR1, function ($signo) {
-            //TODO something
+         $tasks = TickTable::get_task() ;
+        swoole_process::signal(SIGUSR1, function ($signo) use ( $tasks ){
+            Main::log( 'ss' , 'receive singusr1 ');
+            Main::log( 'ss', json_encode( $tasks ) );
         });
 
     }

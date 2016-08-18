@@ -1,4 +1,8 @@
 <?php
+$words = '我问问';
+//$words = 'www';
+echo strlen( $words );
+return;
 /**
  * Created by PhpStorm.
  * User: vic

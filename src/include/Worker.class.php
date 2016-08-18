@@ -64,7 +64,7 @@ class Worker
     {
         $class = $this->workers["classname"];
         $number = $this->workers["number"];
-        $worker->name("lzm_worker_" . $class . "_" . $number);
+        $worker->name("lau_worker_" . $class . "_" . $number);
         $this->autoload($class);
         $class = $class . "Worker";
         $w = new $class;

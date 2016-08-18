@@ -237,12 +237,34 @@ EOF;
      */
     static public function log_write($message)
     {
-        $now = date("H:i:s");
-        if (Crontab::$daemon) {
-            $destination = Crontab::$log_path . "log_" . date("Y-m-d") . ".log";
-            error_log("{$now} : {$message}\r\n", 3, $destination, '');
+        $now = date( "Y-m-d H:i:s" );
+        if( Crontab::$daemon )
+        {
+            $destination = Crontab::$log_path . "log_" . date( "Y-m-d" ) . ".log";
+            error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
         }
         echo "{$now} : {$message}\r\n";
+    }
+
+    static public function debug_write($message)
+    {
+        $now = date( "Y-m-d H:i:s" );
+        {
+            $destination = Crontab::$log_path . "debug_" . date( "Y-m-d" ) . ".log";
+            error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
+        }
+    }
+
+    static public function log($file , $message)
+    {
+        $now = date( "Y-m-d H:i:s" );
+        $destination = Crontab::$log_path . $file . '_'. date( "Y-m-d" ) . ".log";
+        if( is_array( $message ) )
+        {
+            echo __LINE__;
+            $message = var_export( $message , true );
+        }
+        error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
     }
 }
 
