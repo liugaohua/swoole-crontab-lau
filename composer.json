@@ -1,8 +1,0 @@
-{
-    "require": {
-        "monolog/monolog": "2.0.x-dev"
-    },
-    "repositories": {
-          "packagist": { "url": "https://packagist.org", "type": "composer" }
-    }
-}
