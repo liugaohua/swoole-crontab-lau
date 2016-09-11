@@ -1,4 +1,6 @@
 <?php
+echo date('w', 1472890233);
+return;
 /*
    Swoole已经内置了心跳检测功能，能自动close掉长时间没有数据来往的连接。
    而开启心跳检测功能，只需要设置heartbeat_check_interval和heartbeat_idle_time即可。如下：

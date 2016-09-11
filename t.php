@@ -1,4 +1,27 @@
 <?php
+
+$format= 'Y-m-d H:i:s.u';
+$utimestamp = microtime( true );
+$timestamp = floor($utimestamp);
+$milliseconds = round(($utimestamp - $timestamp) * 1000000);
+$test = date(preg_replace('#u#', $milliseconds, $format), $timestamp);
+echo $test;
+echo PHP_EOL;
+return;
+$format = 'Y-m-d H:i:s.u';
+$utimestamp = microtime( true );
+echo $utimestamp.PHP_EOL;
+$timestamp = floor($utimestamp);
+echo $timestamp .PHP_EOL;
+$milliseconds = round(($utimestamp - $timestamp) * 1000000);
+echo $milliseconds.PHP_EOL;
+
+echo date(preg_replace('#(?!\\\)u#', $milliseconds, $format), $timestamp);
+return;
+exec( 'ls' , $output , $status );
+print_r( $output );
+print_r( $status);
+return;
 /*
    Swoole已经内置了心跳检测功能，能自动close掉长时间没有数据来往的连接。
    而开启心跳检测功能，只需要设置heartbeat_check_interval和heartbeat_idle_time即可。如下：

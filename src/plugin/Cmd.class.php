@@ -19,6 +19,7 @@ class  Cmd extends  PluginBase
         {
             Main::log( $method[1], ( $output ) );
         }
-        exit($status);
+        sleep( rand( 1, 11 ) );
+//        exit($status);
     }
 }

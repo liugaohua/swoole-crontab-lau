@@ -62,9 +62,9 @@ EOF;
     static public function spl_autoload_register()
     {
         spl_autoload_register(function ($name) {
-            $file_path = ROOT_PATH . "include" . DS . $name . ".class.php";
+            $file_path = ROOT_PATH . "Core" . DS . $name . ".class.php";
             if(!file_exists($file_path)){
-                $file_path = ROOT_PATH . "include" . DS ."loadtask".DS. $name . ".class.php";
+                $file_path = ROOT_PATH . "Core" . DS ."loadtask".DS. $name . ".class.php";
             }
             include $file_path;
         });
@@ -98,8 +98,8 @@ EOF;
      */
     static public function params_checktime($opt)
     {
-        if (isset($opt["checktime"]) && $opt["checktime"] === "false") {
-            Crontab::$checktime = false;
+        if (isset($opt["checktime"]) && $opt["checktime"] === "true") {
+            Crontab::$checktime = true;
         }
     }
 
@@ -261,12 +261,14 @@ EOF;
         $destination = Crontab::$log_path . $file . '_'. date( "Y-m-d" ) . ".log";
         if( is_array( $message ) )
         {
-            echo __LINE__;
             $message = var_export( $message , true );
         }
         error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
     }
 }
 
+/*define( 'ROOT_DIR', __DIR__ );
+require ROOT_DIR . '/vendor/autoload.php';
 //运行
+ */
 Main::run();

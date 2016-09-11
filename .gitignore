@@ -2,3 +2,5 @@
 .idea*
 \.idea*
 logs/*
+src/vendor/*
+*.log
