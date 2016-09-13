@@ -132,9 +132,10 @@ class Crontab
         });
         $http->on('request',function($request,$response) use ( $http ){
             echo '____request pid#' . posix_getpid() . '#' . __LINE__ . PHP_EOL;
-            echo json_encode( $response->header ) . PHP_EOL;
-            echo json_encode( $response->cookie ) . PHP_EOL;
-            echo json_encode( $response->status ) . PHP_EOL;
+            print_r( $response );
+            //echo json_encode( $response->header ) . PHP_EOL;
+            //echo json_encode( $response->cookie ) . PHP_EOL;
+            #echo json_encode( $response->status ) . PHP_EOL;
             //$http->task($request);
             #$out = json_encode(self::$task_list);
             $buf=[];
@@ -190,9 +191,11 @@ class Crontab
 
         $table = new swoole_table(1024);
         $table->column('name', swoole_table::TYPE_STRING, 64);
-        $table->column('pid', swoole_table::TYPE_INT , 8);
-        $table->column('startTime', swoole_table::TYPE_STRING, 64);
-        $table->column('process', swoole_table::TYPE_STRING, 1024);
+        $table->column('rule', swoole_table::TYPE_STRING, 64);
+        $table->column('unique', swoole_table::TYPE_INT);
+        $table->column('cmd', swoole_table::TYPE_STRING,128);
+        $table->column('pid', swoole_table::TYPE_INT);
+        $table->column('startTime', swoole_table::TYPE_INT);
         $table->create();
         $http->table = $table;
         $http->addprocess($process1);
@@ -295,11 +298,11 @@ class Crontab
         $config = self::$tasksHandle->getTasks(self::$taskParams);
         foreach ($config as $id => $task) {
             $ret = ParseCrontab::parse($task["rule"], $time);
+            print_r( $ret );
             Main::debug_write( var_export( $ret , true ) );
             if ($ret === false) {
-                Main::log_write(ParseCrontab::$error);
+                Main::log(ParseCrontab::$error);
             } elseif (!empty($ret)) {
-                Main::log_write( __FUNCTION__ . ': ' . json_encode( $ret ) );
                 TickTable::set_task($ret, array_merge($task, array("id" => $id)));
             }
         }
@@ -356,7 +359,6 @@ class Crontab
      */
     static private function register_signal()
     {
-        if (1):
         swoole_process::signal(SIGCHLD, function ($signo) {
             while ($ret = swoole_process::wait(false)) {
                 $pid = $ret['pid'];
@@ -388,7 +390,6 @@ class Crontab
                 }
             };
         });
-            endif;
 /*        swoole_process::signal(SIGTERM, function ($signo) {
             self::exit2p("收到退出信号,退出主进程");
         });*/

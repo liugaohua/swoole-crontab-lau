@@ -32,10 +32,12 @@ class Process
 //        Crontab::$serv->table->lock();
         Crontab::$serv->table->set( 'xx' . "$pid",
             array(
-                'name' => json_encode( $task),
+                'name' => $task['taskname'],
+                'rule' => $task['rule'],
+                'cmd' => $task['args']['cmd'],
+                'unique' => $task['unique'],
                 'pid' => $pid,
-                'startTime' => self::getMTime(microtime( true )),
-                'process' => 'xx'
+                'startTime' => microtime(true) ,//self::getMTime(microtime( true )),
             )
         );
 //        Crontab::$serv->table->unlock();

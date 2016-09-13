@@ -12,7 +12,7 @@ return array(
             'port' => 3306,
             'username' => 'outertest',
             'password' => 'outertest',
-            'dbname' => 'crontab',
+            'dbname' => 'cron',
             'charset' => 'utf8'
     ),
     "log"=>array(

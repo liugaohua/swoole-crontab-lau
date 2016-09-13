@@ -18,9 +18,9 @@ class EasyDB extends PDO{
         $this->db_config = array(
             'host' => '127.0.0.1',
             'port' => 3306,
-            'username' => 'root',
-            'password' => '',
-            'dbname' => 'test',
+            'username' => 'outertest',
+            'password' => 'outertest',
+            'dbname' => 'crontab',
             'charset' => 'utf8'
         );
         $this->db_config = array_merge($this->db_config, $config);

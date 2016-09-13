@@ -40,7 +40,7 @@ class LoadTasksByMysql
     {
         $db = $this->connectDB();
         $data = $db->queryOne("SELECT count(*) as total FROM information_schema.TABLES WHERE table_name = 'crontab' AND TABLE_SCHEMA = '{$this->config['dbname']}'");
-        if(!empty($data) && intval($data["total"]) ==  0){
+        if(!empty($data) && intval($data["total"]) <=  0){
             $stmt = $db->executeSql($this->createTable);
             if($stmt){
                 Main::log_write("执行sql:".$this->createTable."执行成功");
