@@ -18,6 +18,9 @@ class LoadTasks
             case "mysql":
                 $this->handle =  new LoadTasksByMysql($params);
                 break;
+            case 'mysqli':
+                $this->handle = new LoadTasksByMysqli( $params );
+                break;
             default:
                 $this->handle =  new LoadTasksByFile($params);
                 break;

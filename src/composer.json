@@ -3,6 +3,7 @@
         "monolog/monolog": "^1.21"
     },
     "autoload": {
-        "classmap": ["Core/", "plugin"]
+        "classmap": ["Core/", "plugin"],
+        "psr-4": {}
     }
 }

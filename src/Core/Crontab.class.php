@@ -80,7 +80,7 @@ class Crontab
             'max_request' => 1000,
             'dispatch_mode' => 2,
             'debug_mode' => 1,
-            'log_file'    => './swoole.log',
+            'log_file' => LOG_DIR . '/swoole.log',
         ));
 
         $http->on('Start', function( $http ){
@@ -132,20 +132,12 @@ class Crontab
         });
         $http->on('request',function($request,$response) use ( $http ){
             echo '____request pid#' . posix_getpid() . '#' . __LINE__ . PHP_EOL;
-            print_r( $response );
-            //echo json_encode( $response->header ) . PHP_EOL;
-            //echo json_encode( $response->cookie ) . PHP_EOL;
-            #echo json_encode( $response->status ) . PHP_EOL;
-            //$http->task($request);
-            #$out = json_encode(self::$task_list);
-            $buf=[];
-            foreach($http->table as $key => $value)
-            {
-                $buf[$key] = $value;
-            }
-
-            $out = json_encode( $buf );
-            $response->end($out);
+            print_r( $request );
+            $responseMsg = Request::getInstance()
+                ->setRequest( $request )
+                ->setHttp( $http )
+                ->doResponse();
+            $response->end( json_encode( $responseMsg ) );
         });
 
         $http->on( 'task', function($http, $taskId, $fromId, $request){
@@ -243,7 +235,7 @@ class Crontab
     {
         self::$tasksHandle = new LoadTasks(strtolower(self::$taskType), self::$taskParams);
         self::register_signal();
-        if (self::$checktime) {
+        if (self::$checktime ) {
             $run = true;
             Main::log_write("正在启动...");
             while ($run) {
@@ -298,7 +290,6 @@ class Crontab
         $config = self::$tasksHandle->getTasks(self::$taskParams);
         foreach ($config as $id => $task) {
             $ret = ParseCrontab::parse($task["rule"], $time);
-            print_r( $ret );
             Main::debug_write( var_export( $ret , true ) );
             if ($ret === false) {
                 Main::log(ParseCrontab::$error);
@@ -402,6 +393,7 @@ class Crontab
             Main::log( 'ss' , 'receive singusr1 ');
             Main::log( 'ss', json_encode( $tasks ) );
         });
+        
 
     }
 }

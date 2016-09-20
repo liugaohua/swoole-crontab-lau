@@ -243,16 +243,16 @@ EOF;
             $destination = Crontab::$log_path . "log_" . date( "Y-m-d" ) . ".log";
             error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
         }
+        Log::getInstance()->warning( $message );
         echo "{$now} : {$message}\r\n";
     }
 
     static public function debug_write($message)
     {
         $now = date( "Y-m-d H:i:s" );
-        {
-            $destination = Crontab::$log_path . "debug_" . date( "Y-m-d" ) . ".log";
-            error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
-        }
+        $destination = Crontab::$log_path . "debug_" . date( "Y-m-d" ) . ".log";
+        #error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
+        Log::getInstance()->warning( $message );
     }
 
     static public function log($file , $message)
@@ -263,12 +263,15 @@ EOF;
         {
             $message = var_export( $message , true );
         }
-        error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
+        #error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
+        Log::getInstance()->info( $message );
     }
 }
 
-/*define( 'ROOT_DIR', __DIR__ );
-require ROOT_DIR . '/vendor/autoload.php';
 //运行
- */
+define( 'ROOT_DIR', __DIR__ );
+define( 'LOG_DIR', __DIR__ . '/logs' );
+require ROOT_DIR . '/vendor/autoload.php';
+
 Main::run();
+

@@ -12,15 +12,16 @@ class EasyDB extends PDO{
     private $sql_stmt = '';//组装的sql语句
     private $query_type = '';//当前正在执行语句类型
     private $error_info = null;//错误信息
-    private $log_path = './sql-error.log';//日志存储路径
+    private $log_path = '';//日志存储路径
 
     public function __construct($config = array()){
+        $this->log_path = LOG_DIR . '/sql-error.log';
         $this->db_config = array(
             'host' => '127.0.0.1',
             'port' => 3306,
             'username' => 'outertest',
             'password' => 'outertest',
-            'dbname' => 'crontab',
+            'dbname' => 'cron',
             'charset' => 'utf8'
         );
         $this->db_config = array_merge($this->db_config, $config);
@@ -35,6 +36,7 @@ class EasyDB extends PDO{
             echo '</pre>';
             exit();
         }
+        print_r( $this );
     }
 
     /*

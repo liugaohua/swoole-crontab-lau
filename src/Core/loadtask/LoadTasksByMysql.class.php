@@ -84,12 +84,18 @@ class LoadTasksByMysql
                 if(!is_array($rule)){
                     $rule = $val["rule"];
                 }
+
+                $args = json_decode($val["args"],true);
+                if( empty( $args ))
+                {
+                    continue;
+                }
                 $tasks[$val["taskid"].$val["id"]] = array(
                     "taskname" => $val["taskname"],
                     "rule" => $rule,
                     "unique" => $val["unique"],
                     "execute" => $val["execute"],
-                    "args" => json_decode($val["args"],true)
+                    "args" => $args ,
                 );
             }
         }
@@ -103,7 +109,6 @@ class LoadTasksByMysql
 
     protected function getDbConfig(){
         $config = include( ROOT_PATH . "config/config.php");
-//        $config = include( ROOT_DIR . "/config/config.php");
         if(empty($config) || !isset($config["mysql"])){
             Main::log_write("mysql config not found");
             exit();
