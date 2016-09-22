@@ -1,4 +1,10 @@
 <?php
+$s1 = microtime(true);
+sleep(2);
+$s2 = microtime(true);
+echo $s2-$s1;
+echo PHP_EOL;
+
 
 $format= 'Y-m-d H:i:s.u';
 $utimestamp = microtime( true );

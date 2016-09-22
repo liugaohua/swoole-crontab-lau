@@ -8,7 +8,7 @@
  */
 class Crontab
 {
-    static public $process_name = "lau_Cron_Master";//进程名称
+    static public $process_name_prefix = "lau_Cron.";//进程名称
     static public $pid_file;                    //pid文件位置
     static public $log_path;                    //日志文件位置
     static public $taskParams;                 //获取task任务参数
@@ -115,7 +115,7 @@ class Crontab
         $http->on('WorkerStart', function( $serv , $worker_id) use ( $http ){
             echo 'pid#' . posix_getpid() . '#' . __LINE__ . PHP_EOL;
             echo $worker_id ." onWorkerStart \n";
-            swoole_set_process_name( 'lau_php_worker' . posix_getpid() );
+            swoole_set_process_name( self::$process_name_prefix . 'worker' . posix_getpid() );
             // 只有当worker_id为0时才添加定时器,避免重复添加
             if( $worker_id == 0 ) {
                 /*
@@ -171,7 +171,7 @@ class Crontab
 
         $process1 = new swoole_process( function( $worker ) use( $http )
         {
-            swoole_set_process_name( "lau_php my_process ##".posix_getpid() );
+            swoole_set_process_name( self::$process_name_prefix . "cronProcess".posix_getpid() );
             self::run();
 /*            box::registerSingal();
             swoole_timer_tick( 1000, function( $interval ) use ( $http ){
@@ -187,12 +187,12 @@ class Crontab
         $table->column('unique', swoole_table::TYPE_INT);
         $table->column('cmd', swoole_table::TYPE_STRING,128);
         $table->column('pid', swoole_table::TYPE_INT);
-        $table->column('startTime', swoole_table::TYPE_INT);
+        $table->column('startTime', swoole_table::TYPE_FLOAT);
         $table->create();
         $http->table = $table;
         $http->addprocess($process1);
         self::$serv = $http;
-        swoole_set_process_name( 'lau_php_main' . posix_getpid() );
+        swoole_set_process_name( self::$process_name_prefix. 'main' . posix_getpid() );
         $http->start();
     }
 
@@ -214,7 +214,7 @@ class Crontab
         if (!function_exists("swoole_set_process_name")) {
             self::exit2p("Please install swoole extension.http://www.swoole.com/");
         }
-        swoole_set_process_name(self::$process_name);
+        swoole_set_process_name(self::$process_name_prefix);
     }
 
     /**

@@ -52,16 +52,6 @@ class Process
 //        });
     }
 
-    public static function getMTime( $utimestamp )
-    {
-        $format= 'Y-m-d H:i:s.u';
-        $timestamp = floor($utimestamp);
-        $milliseconds = round(($utimestamp - $timestamp) * 1000000);
-        $test = date(preg_replace('#u#', $milliseconds, $format), $timestamp);
-        echo $test;
-        echo PHP_EOL;
-        return $test;
-    }
 
     /**
      * 子进程执行的入口
@@ -70,7 +60,7 @@ class Process
     public function run($worker)
     {
         $class = $this->task["execute"];
-        $processName = 'lau_php_process' . posix_getpid();
+        $processName = Crontab::$process_name_prefix . 'taskProcess' . posix_getpid();
         swoole_set_process_name($processName);
 //        $worker->name("lau_crontab_" . $class . "_" . $this->task["id"]);
         $this->autoload($class);
@@ -82,7 +72,7 @@ class Process
 
     private function _exit($worker)
     {
-        $worker->exit(0);
+//        $worker->exit(0);
     }
 
     /**

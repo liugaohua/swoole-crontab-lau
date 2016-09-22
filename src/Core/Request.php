@@ -6,19 +6,29 @@
 class Request
 {
     /**
+     * 请求数据
+     * get,post,server,header,cookie
      * @var
      */
     private $_request;
 
     /**
+     * 响应数据
      * @var array
      */
-    private $_reponseMsg = array();
+    private $_responseMsg = array();
 
     /**
+     * http handler
      * @var
      */
     private $_http;
+
+    /**
+     * get,post数据
+     * @var array
+     */
+    private $_requestData = array();
 
     /**
      * @param $request
@@ -27,6 +37,14 @@ class Request
     public function setRequest( $request )
     {
         $this->_request = $request;
+        if( isset( $request->get ) && is_array( $request->get ) )
+        {
+            $this->_requestData = array_merge( $this->_requestData, $request->get );
+        }
+        if( isset( $request->post ) && is_array( $request->post ) )
+        {
+            $this->_requestData = array_merge( $this->_requestData, $request->post );
+        }
         return $this;
     }
 
@@ -46,14 +64,17 @@ class Request
     public function doResponse()
     {
         $out = array();
-        if( isset( $this->_request->get ) && isset( $this->_request->get[ 'action' ] ) )
+        if( isset( $this->_requestData ) && isset( $this->_requestData[ 'action' ] ) )
         {
-            switch( $this->_request->get[ 'action' ] )
+            switch( $this->_requestData[ 'action' ] )
             {
+                #http://192.168.33.10:9501/?action=list
                 case 'list':
                     $buf = [ ];
                     foreach( $this->_http->table as $key => $value )
                     {
+                        $value[ 'about' ] = '已经运行了 ' . ( microtime( true ) - $value[ 'startTime' ] );
+                        $value[ 'startTime' ] = self::getMTime( $value[ 'startTime' ] );
                         $buf[ $key ] = $value;
                     }
 
@@ -62,8 +83,9 @@ class Request
                         'list' => $buf,
                     );
                     break;
+                #http://192.168.33.10:9501/?action=kill&pid=123121
                 case 'kill':
-                    if( $pid = $this->_request->get[ 'pid' ] )
+                    if( $pid = $this->_requestData[ 'pid' ] )
                     {
                         if( !swoole_process::kill( $pid, 0 ) )
                         {
@@ -78,11 +100,26 @@ class Request
                         }
                     }
                     break;
+                default:
+                    $out = array(
+                        '?action=list',
+                        '?action=kill&pid=123121',
+                    );
             }
         }
-        $this->_reponseMsg = $out;
-        return $this->_reponseMsg;
+        $this->_responseMsg = $out;
+        return $this->_responseMsg;
     }
+
+    public static function getMTime( $utimestamp )
+    {
+        $format= 'Y-m-d H:i:s.u';
+        $timestamp = floor($utimestamp);
+        $milliseconds = round(($utimestamp - $timestamp) * 1000000);
+        $test = date(preg_replace('#u#', $milliseconds, $format), $timestamp);
+        return $test;
+    }
+
 
     /**
      * @return Request

@@ -21,11 +21,11 @@ class LoadTasksByMysqli
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
     ";
-    
+
     /**
-     * @var null
+     * @var
      */
-    static $link = null;
+    static $link;
     /**
      * @var
      */
@@ -73,10 +73,16 @@ class LoadTasksByMysqli
      * @param $sql
      * @return array|null
      */
-    protected function queryAll( $sql )
+    protected function findAll( $sql )
     {
-        mysqli_query( self::$link , 'set global max_allowed_packet = 50*1024*1024');
-        $result = mysqli_query( self::$link, $sql );
+        echo $sql . PHP_EOL;
+        echo strlen( $sql ).PHP_EOL;
+//        print_r( self::$link );
+        echo 'threadId:' . self::$link->thread_id . PHP_EOL;
+
+        echo PHP_EOL;
+        $this->query( 'set global max_allowed_packet = 50*1024*1024' );
+        $result = $this->query( $sql );
         Log::getInstance()->warning( 'connect handler.', array( self::$link ) );
         $data = array();
         if( $result )
@@ -88,14 +94,97 @@ class LoadTasksByMysqli
     }
 
     /**
+     * 检查数据库连接,是否有效，无效则重新建立
+     */
+    protected function checkConnection()
+    {
+        if( !$this->ping() )
+        {
+            $this->close();
+            return $this->connectDB();
+        }
+        return true;
+    }
+
+    protected function close()
+    {
+        mysqli_close( self::$link );
+    }
+
+    function ping()
+    {
+        if( !mysqli_ping( self::$link ) )
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /**
      * @param $sql
      * @return bool|mysqli_result
      */
     private function query( $sql )
     {
-        $result = mysqli_query( self::$link, $sql );
-        return $result;
+        $res = false;
+        for( $i = 0; $i < 2; $i++ )
+        {
+            $res = mysqli_query( self::$link, $sql );
+
+            if( $res === false )
+            {
+                if( mysqli_errno( self::$link ) == 2006 or mysqli_errno( self::$link ) == 2013 )
+                {
+                    $r = $this->checkConnection();
+                    if( $r === true )
+                    {
+                        continue;
+                    }
+                }
+                Log::getInstance()->warning( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
+                return false;
+            }
+            break;
+        }
+        if( !$res )
+        {
+            Log::getInstance()->warning( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
+            return false;
+        }
+        if( is_bool( $res ) )
+        {
+            return $res;
+        }
+
+
+        #################
+        /*        $result = mysqli_query( self::$link, $sql );
+                if( $result === false )
+                {
+                    if( mysqli_errno( self::$link ) == 2006 or mysqli_errno( self::$link ) == 2013 )
+                    {
+                        $r = $this->checkConnection();
+                        if ($r === true)
+                        {
+                            continue;
+                        }
+                    }
+                    Log::getInstance()->warning( __CLASS__ . " SQL Error", $this->errorMessage( $sql ) );
+                    return false;
+                }*/
+
+        return $res;
+        #return new MySQLRecord( $res );
     }
+
+    function errorMessage($sql)
+    {
+        return mysqli_error( self::$link ) . "<hr />$sql<hr />MySQL Server: {$this->config['host']}:{$this->config['port']}";
+    }
+
 
     /**
      * @param $sql
@@ -104,6 +193,7 @@ class LoadTasksByMysqli
     private function find( $sql )
     {
         $result = $this->query( $sql );
+
         $data = array();
         if( $result )
         {
@@ -128,10 +218,11 @@ class LoadTasksByMysqli
      */
     protected function loadTasks()
     {
+        echo __CLASS__ . ' ## ' . __FUNCTION__ . '####################' . posix_getpid().PHP_EOL;
         $this->connectDB();
         $sql = "select * from `crontab` where `status`=0";
-        $data = $this->queryAll( $sql );
-        self::$link = null;
+        $data = $this->findAll( $sql );
+/*        self::$link = null;*/
         $this->oriTasks = $data;
     }
 
@@ -172,7 +263,7 @@ class LoadTasksByMysqli
     /**
      * 链接
      */
-    protected function connectDB()
+    protected function connect()
     {
         if( !self::$link )
         {
@@ -190,6 +281,35 @@ class LoadTasksByMysqli
             mysqli_select_db( self::$link, $this->config[ 'dbname' ] );
         }
     }
+
+    /**
+     * @return bool
+     */
+    protected function connectDB()
+    {
+        $db_config = $this->config;
+        if( empty( $db_config[ 'persistent' ] ) )
+        {
+            self::$link = mysqli_connect( $db_config[ 'host' ], $db_config[ 'username' ], $db_config[ 'password' ], $db_config[ 'dbname' ], $db_config[ 'port' ] );
+        }
+        else
+        {
+            self::$link = mysqli_connect( 'p:' . $db_config[ 'host' ], $db_config[ 'username' ], $db_config[ 'password' ], $db_config[ 'dbname' ], $db_config[ 'port' ] );
+        }
+        if( !self::$link )
+        {
+            Log::getInstance()->warning( 'SQL Error.' . __CLASS__ , mysqli_errno( self::$link ) );
+            return false;
+        }
+
+        mysqli_select_db( self::$link, $db_config[ 'dbname' ] ) or Log::getInstance()->warning( "SQL Error. " . mysqli_error( self::$link ) );
+        if( $db_config[ 'charset' ] )
+        {
+            mysqli_set_charset( self::$link, $this->config[ 'charset' ] ) or Log::getInstance()->warning( "SQL Error. " . mysqli_error( self::$link ) );
+        }
+        return true;
+    }
+
 
     /**
      * @return mixed
@@ -212,9 +332,46 @@ class LoadTasksByMysqli
     {
         if( self::$link )
         {
-            Main::debug_write( 'destruct close .' );
-            mysqli_close( self::$link );
-            self::$link = null;
+/*            $res = mysqli_query( self::$link, $sql );
+
+            if( $res === false )
+            {
+               Main::debug_write( 'destruct close .' );
+               mysqli_close( self::$link );
+               self::$link = null;
+            }*/
         }
     }
 }
+
+
+class MySQLRecord
+{
+    public $result;
+
+    function __construct( $result )
+    {
+        $this->result = $result;
+    }
+
+    function fetch()
+    {
+        return mysqli_fetch_assoc( $this->result );
+    }
+
+    function fetchAll()
+    {
+        $data = array();
+        while( $record = mysqli_fetch_assoc( $this->result ) )
+        {
+            $data[] = $record;
+        }
+        return $data;
+    }
+
+    function free()
+    {
+        mysqli_free_result( $this->result );
+    }
+}
+
