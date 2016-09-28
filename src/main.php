@@ -42,6 +42,7 @@ EOF;
     static public function run()
     {
         $opt = getopt(self::$options, self::$longopts);
+        print_r( $opt );
         self::spl_autoload_register();
         self::params_h($opt);
         self::params_d($opt);
@@ -98,7 +99,7 @@ EOF;
      */
     static public function params_checktime($opt)
     {
-        if (isset($opt["checktime"]) && $opt["checktime"] === "true") {
+        if (isset($opt["checktime"]) && $opt["checktime"] ) {
             Crontab::$checktime = true;
         }
     }
@@ -147,15 +148,23 @@ EOF;
     static public function params_p($opt)
     {
         //记录pid文件位置
-        if (isset($opt["p"]) && $opt["p"]) {
-            Crontab::$pid_file = $opt["p"] . "/pid";
+        if( isset( $opt[ "p" ] ) && $opt[ "p" ] )
+        {
+            Crontab::$pid_file = $opt[ "p" ] . "/pid";
         }
         //记录pid文件位置
-        if (isset($opt["pid"]) && $opt["pid"]) {
-            Crontab::$pid_file = $opt["pid"] . "/pid";
+        if( isset( $opt[ "pid" ] ) && $opt[ "pid" ] )
+        {
+            Crontab::$pid_file = $opt[ "pid" ] . "/pid";
         }
-        if (empty(Crontab::$pid_file)) {
+        if( empty( Crontab::$pid_file ) )
+        {
             Crontab::$pid_file = ROOT_PATH . "/pid";
+        }
+
+        if( empty( Crontab::$cron_pid_file ) )
+        {
+            Crontab::$cron_pid_file = ROOT_PATH . '/cron.pid';
         }
     }
 
@@ -243,7 +252,7 @@ EOF;
             $destination = Crontab::$log_path . "log_" . date( "Y-m-d" ) . ".log";
             error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
         }
-        Log::getInstance()->warning( $message );
+        Log::info( $message );
         echo "{$now} : {$message}\r\n";
     }
 
@@ -252,7 +261,7 @@ EOF;
         $now = date( "Y-m-d H:i:s" );
         $destination = Crontab::$log_path . "debug_" . date( "Y-m-d" ) . ".log";
         #error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
-        Log::getInstance()->warning( $message );
+        Log::warning( $message );
     }
 
     static public function log($file , $message)
@@ -264,7 +273,7 @@ EOF;
             $message = var_export( $message , true );
         }
         #error_log( "{$now} : {$message}\r\n", 3, $destination, '' );
-        Log::getInstance()->info( $message );
+        Log::info( $message );
     }
 }
 

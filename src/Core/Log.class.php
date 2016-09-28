@@ -10,22 +10,33 @@ class Log
 {
     public $level;
     public $type;
-    public $logpath;
+    /**
+     * @var
+     */
     static $logHandler;
-    static $singleInstance = array();
+    /**
+     * @var
+     */
+    static $singleInstance;
+    static $channel = 'cron';
 
-    function __construct( $channel )
+    function __construct()
     {
-        self::$logHandler = new Monolog\Logger( $channel );
-        self::$logHandler->pushHandler( new Monolog\Handler\StreamHandler( LOG_DIR . '/main.log', Monolog\Logger::WARNING ) );
     }
 
+    private static function _init( $type )
+    {
+        self::$logHandler = new Monolog\Logger( self::$channel );
+        self::$logHandler->pushHandler( new Monolog\Handler\StreamHandler( LOG_DIR . '/main.log', $type ) );
+    }
+    
     /**
      * @param $message
      * @param array $context
      */
-    public function warning( $message , $context = array())
+    public static function warning( $message , $context = array())
     {
+        self::_init( Monolog\Logger::WARNING );
         if( empty( $message ) && empty( $context ) )
         {
             return;
@@ -37,8 +48,9 @@ class Log
      * @param $message
      * @param array $context
      */
-    public function error( $message, $context = array() )
+    public static function error( $message, $context = array() )
     {
+        self::_init( Monolog\Logger::ERROR );
         if( empty( $message ) && empty( $context ) )
         {
             return;
@@ -50,8 +62,9 @@ class Log
      * @param $message
      * @param array $context
      */
-    public function debug( $message, $context = array() )
+    public static function debug( $message, $context = array() )
     {
+        self::_init( Monolog\Logger::DEBUG );
         if( empty( $message ) && empty( $context ) )
         {
             return;
@@ -65,6 +78,7 @@ class Log
      */
     public function notice( $message, $context = array() )
     {
+        self::_init( Monolog\Logger::NOTICE );
         if( empty( $message ) && empty( $context ) )
         {
             return;
@@ -76,8 +90,9 @@ class Log
      * @param $message
      * @param array $context
      */
-    public function info( $message, $context = array() )
+    public static function info( $message, $context = array() )
     {
+        self::_init( Monolog\Logger::INFO );
         if( empty( $message ) && empty( $context ) )
         {
             return;
@@ -86,15 +101,14 @@ class Log
     }
 
     /**
-     * @param string $channel
      * @return Log|null
      */
-    public static function getInstance( $channel = 'cron' )
+    public static function getInstance()
     {
-        if( !isset( self::$singleInstance[ $channel ] ) || !is_object( self::$singleInstance[ $channel ] ) )
+        if( !isset( self::$singleInstance ) || !is_object( self::$singleInstance ) )
         {
-            self::$singleInstance[ $channel ] = new self( $channel );
+            self::$singleInstance = new self();
         }
-        return self::$singleInstance[ $channel ];
+        return self::$singleInstance;
     }
 }

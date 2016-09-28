@@ -36,6 +36,7 @@ class Request
      */
     public function setRequest( $request )
     {
+        Log::info('request.' , array($request ));
         $this->_request = $request;
         if( isset( $request->get ) && is_array( $request->get ) )
         {
@@ -64,9 +65,9 @@ class Request
     public function doResponse()
     {
         $out = array();
-        if( isset( $this->_requestData ) && isset( $this->_requestData[ 'action' ] ) )
+        #if( isset( $this->_requestData ) && isset( $this->_requestData[ 'action' ] ) )
         {
-            switch( $this->_requestData[ 'action' ] )
+            switch( @$this->_requestData[ 'action' ] )
             {
                 #http://192.168.33.10:9501/?action=list
                 case 'list':
@@ -101,9 +102,15 @@ class Request
                     }
                     break;
                 default:
+                    $requestUrl = 'http://'.$this->_request->header['host'];
                     $out = array(
-                        '?action=list',
-                        '?action=kill&pid=123121',
+                        'usage' => array (
+                            $requestUrl . '?action=list',
+                            $requestUrl . '?action=kill&pid=123121',
+                        ),
+                        'stat'=> $this->_http->stats(),
+                        'connections' => $this->_http->connections,
+                        'setting' => $this->_http->setting,
                     );
             }
         }

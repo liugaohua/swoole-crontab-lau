@@ -23,7 +23,8 @@ class LoadTasks
                 echo '--------------------------------'.PHP_EOL;
                 break;
             default:
-                $this->handle =  new LoadTasksByFile($params);
+                #$this->handle =  new LoadTasksByFile($params);
+                $this->handle = new LoadTasksByMysqli( $params );
                 break;
         }
     }

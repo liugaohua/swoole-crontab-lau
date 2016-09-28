@@ -8,11 +8,15 @@
  */
 class Crontab
 {
-    static public $process_name_prefix = "lau_Cron.";//进程名称
+    static public $process_name_prefix = "ydCron: ";//进程名称
     static public $pid_file;                    //pid文件位置
+    static public $cron_pid_file;
     static public $log_path;                    //日志文件位置
     static public $taskParams;                 //获取task任务参数
     static public $taskType;                 //获取task任务的类型
+    /**
+     * @var
+     */
     static public $tasksHandle;                 //获取任务的句柄
     static public $daemon = false;              //运行模式
     static private $pid;                        //pid
@@ -41,16 +45,22 @@ class Crontab
     static public function stop($output = true)
     {
         $pid = @file_get_contents(self::$pid_file);
-        if ($pid) {
-            if (swoole_process::kill($pid, 0)) {
-                swoole_process::kill($pid, SIGTERM);
-                Main::log_write("进程" . $pid . "已结束");
-            } else {
-                @unlink(self::$pid_file);
-                Main::log_write("进程" . $pid . "不存在,删除pid文件");
+        if( $pid )
+        {
+            if( swoole_process::kill( $pid, 0 ) )
+            {
+                swoole_process::kill( $pid, SIGTERM );
+                Main::log_write( "进程" . $pid . "已结束" );
             }
-        } else {
-            $output && Main::log_write("需要停止的进程未启动");
+            else
+            {
+                @unlink( self::$pid_file );
+                Main::log_write( "进程" . $pid . "不存在,删除pid文件" );
+            }
+        }
+        else
+        {
+            $output && Main::log_write( "需要停止的进程未启动" );
         }
     }
 
@@ -73,35 +83,44 @@ class Crontab
     {
         $http = new swoole_http_server("0.0.0.0",9501,SWOOLE_BASE);
         //初始化swoole服务
-        $http->set(array(
+        $http->set( array(
             'task_worker_num' => 0,
-            'worker_num'  => 1,
-            'daemonize'   => 0, //是否作为守护进程,此配置一般配合log_file使用
-            'max_request' => 1000,
+            'worker_num' => 1,
+            'max_request' => 100,
             'dispatch_mode' => 2,
             'debug_mode' => 1,
             'log_file' => LOG_DIR . '/swoole.log',
-        ));
+            'daemonize' => self::$daemon, //是否作为守护进程,此配置一般配合log_file使用
+            'open_tcp_keepalive' => false,
+        ) );
 
         $http->on('Start', function( $http ){
             self::$pid = $http->master_pid;
-            echo 'master pid# '. $http->master_pid.PHP_EOL;
-            echo 'manager pid# '. $http->manager_pid.PHP_EOL;
-            echo 'start pid# ' . posix_getpid() . PHP_EOL;
-            echo 'sw version# ' . SWOOLE_VERSION . " onStart".PHP_EOL;
+            swoole_set_process_name( self::$process_name_prefix. 'master' . $http->master_pid );
+            file_put_contents(self::$pid_file , $http->master_pid);
+
+            $startInfo = Crontab::$process_name_prefix . ' start...' . PHP_EOL
+                . 'master pid#' . $http->master_pid . ';' . PHP_EOL
+                . 'manager pid#' . $http->manager_pid . ';' . PHP_EOL
+                . 'start pid#' . posix_getpid() . ';' . PHP_EOL
+                . 'sw version#' . SWOOLE_VERSION . " onStart" . ';' . PHP_EOL;
+            echo $startInfo;
+            Main::log_write( $startInfo );
         } );
-        $http->on('Shutdown', function( $http){
+        $http->on('Shutdown', function(){
             echo 'shutdown'.PHP_EOL;
-            self::stop();
-            $pid = @file_get_contents(self::$pid_file);
+            #self::stop();
+            $pid = @file_get_contents(self::$cron_pid_file);
+            print_r( self::$task_list);
             if( $pid )
             {
                 if( posix_kill( $pid, 0 ) )
                 {
-                    posix_kill( $pid, SIGKILL );
+                    #posix_kill( $pid, SIGKILL );
+                    posix_kill( $pid, SIGINT );
+                    @unlink( self::$cron_pid_file );
                 }
             }
-            #onManagerStop($http);
         });
         $http->on( 'workerStop', function()
         {
@@ -113,26 +132,14 @@ class Crontab
         } );
 
         $http->on('WorkerStart', function( $serv , $worker_id) use ( $http ){
-            echo 'pid#' . posix_getpid() . '#' . __LINE__ . PHP_EOL;
             echo $worker_id ." onWorkerStart \n";
             swoole_set_process_name( self::$process_name_prefix . 'worker' . posix_getpid() );
-            // 只有当worker_id为0时才添加定时器,避免重复添加
-            if( $worker_id == 0 ) {
-                /*
-                echo 'worker0 pid#' . posix_getpid() . '#' . __LINE__ . PHP_EOL;
-                self::run();
-                box::registerSingal();
-                swoole_timer_tick(1000,function( $params ){
-                    box::processDo();
-                    $echo = 'timer: ##'. posix_getpid() . ' ##'. date( 'Y-m-d H:i:s').PHP_EOL;
-                    file_put_contents( '/tmp/xx.log' , $echo , FILE_APPEND );
-                });
-                 */
-            }
+            if( $worker_id == 0 ) {}
         });
         $http->on('request',function($request,$response) use ( $http ){
             echo '____request pid#' . posix_getpid() . '#' . __LINE__ . PHP_EOL;
             print_r( $request );
+            print_r( $http->setting );
             $responseMsg = Request::getInstance()
                 ->setRequest( $request )
                 ->setHttp( $http )
@@ -140,46 +147,39 @@ class Crontab
             $response->end( json_encode( $responseMsg ) );
         });
 
-        $http->on( 'task', function($http, $taskId, $fromId, $request){
-            echo '+++++task:'.$http->worker_pid.PHP_EOL;
-            return ;
-        });
-
-        $server = $http;
-        $http->on( 'finish' , function($server, $taskId, $ret)
-            {
-    /*
-    $fromId = $server->worker_id;
-    //任务结束，如果设置了任务完成回调函数,执行回调任务
-    if (!empty($ret['finish']) && !isset($ret['params']['isFinish'])) {
-        $data = $ret['data'];
-        //请求回调任务的op
-        $data['pre_op'] = $ret['op'];
-        $data['op'] = $ret['finish'];
-        //携带上一次请求执行的完整信息提供给回调函数
-        $this->server->task(123);
-    }
-    if (empty($ret['errno'])) {
-        //任务成功运行不再提示
-        //echo "\tTask[taskId:{$taskId}] success" . PHP_EOL;
-    } else {
-        $error = PHP_EOL . var_export($ret, true);
-        echo "\tTask[taskId:$fromId#{$taskId}] failed, Error[$error]" . PHP_EOL;
-    }
-     */
+        /*
+            $http->on( 'task', function($http, $taskId, $fromId, $request){
+                echo '+++++task:'.$http->worker_pid.PHP_EOL;
+                return ;
             });
+    
+            $server = $http;
+            $http->on( 'finish' , function($server, $taskId, $ret)
+                {
+        $fromId = $server->worker_id;
+        //任务结束，如果设置了任务完成回调函数,执行回调任务
+        if (!empty($ret['finish']) && !isset($ret['params']['isFinish'])) {
+            $data = $ret['data'];
+            //请求回调任务的op
+            $data['pre_op'] = $ret['op'];
+            $data['op'] = $ret['finish'];
+            //携带上一次请求执行的完整信息提供给回调函数
+            $this->server->task(123);
+        }
+        if (empty($ret['errno'])) {
+            //任务成功运行不再提示
+            //echo "\tTask[taskId:{$taskId}] success" . PHP_EOL;
+        } else {
+            $error = PHP_EOL . var_export($ret, true);
+            echo "\tTask[taskId:$fromId#{$taskId}] failed, Error[$error]" . PHP_EOL;
+        }
+            });
+         */
 
-        $process1 = new swoole_process( function( $worker ) use( $http )
-        {
-            swoole_set_process_name( self::$process_name_prefix . "cronProcess".posix_getpid() );
+        $process1 = new swoole_process( function() {
+            swoole_set_process_name( self::$process_name_prefix . "cronProcess" . posix_getpid() );
             self::run();
-/*            box::registerSingal();
-            swoole_timer_tick( 1000, function( $interval ) use ( $http ){
-                box::processDo();
-                $echo = 'timer: ##' . posix_getpid() . ' ##' . date( 'Y-m-d H:i:s' ) . PHP_EOL;
-                file_put_contents( '/tmp/xx.log', $echo, FILE_APPEND );
-            } );*/
-        } ,false );
+        }, false );
 
         $table = new swoole_table(1024);
         $table->column('name', swoole_table::TYPE_STRING, 64);
@@ -192,7 +192,18 @@ class Crontab
         $http->table = $table;
         $http->addprocess($process1);
         self::$serv = $http;
-        swoole_set_process_name( self::$process_name_prefix. 'main' . posix_getpid() );
+		/*
+        self::$tasksHandle = new LoadTasks( strtolower( self::$taskType ), self::$taskParams );
+        self::register_signal();
+            Crontab::load_config();
+            Crontab::do_something();
+        $http->tick( 60000, function(){
+            Crontab::load_config();
+        } );
+        $http->tick( 1000, function() {
+            Crontab::do_something();
+        } );
+		 */
         $http->start();
     }
 
@@ -233,29 +244,36 @@ class Crontab
      */
     static protected function run()
     {
-        self::$tasksHandle = new LoadTasks(strtolower(self::$taskType), self::$taskParams);
+        self::$tasksHandle = new LoadTasks( strtolower( self::$taskType ), self::$taskParams );
         self::register_signal();
-        if (self::$checktime ) {
+        if( self::$checktime )
+        {
             $run = true;
-            Main::log_write("正在启动...");
-            while ($run) {
-                $s = date("s");
-                if ($s == 0) {
+            Main::log_write( "正在启动..." );
+            while( $run )
+            {
+                $s = date( "s" );
+                if( $s == 0 )
+                {
 
                     Crontab::load_config();
                     self::register_timer();
                     $run = false;
-                } else {
-                    Main::log_write("启动倒计时 " . (60 - $s) . " 秒");
-                    sleep(1);
+                }
+                else
+                {
+                    Main::log_write( "启动倒计时 " . ( 60 - $s ) . " 秒" );
+                    sleep( 1 );
                 }
             }
-        } else {
+        }
+        else
+        {
             self::load_config();
             self::register_timer();
         }
-//        self::get_pid();
-        self::write_pid();
+        #self::get_pid();
+        self::write_cron_pid( posix_getpid() );
         //开启worker
         if (self::$worker) {
             (new Worker())->loadWorker();
@@ -276,9 +294,9 @@ class Crontab
     /**
      * 写入当前进程的pid到pid文件
      */
-    static private function write_pid()
+    static private function write_cron_pid( $pid )
     {
-        file_put_contents(self::$pid_file, self::$pid);
+        file_put_contents( self::$cron_pid_file, $pid );
     }
 
     /**
@@ -304,22 +322,19 @@ class Crontab
      */
     static protected function register_timer()
     {
-        swoole_timer_tick(60000, function () {
+        swoole_timer_tick( 60000, function(){
             Crontab::load_config();
-        });
-        swoole_timer_tick(1000, function ($interval) {
-            #Main::log( 'dd', json_encode( Crontab::$task_list ));
-            file_put_contents( '/tmp/xx.log' , date( 'Y-m-d H:i:s').PHP_EOL, FILE_APPEND);
-            Crontab::do_something($interval);
-        });
+        } );
+        swoole_timer_tick( 1000, function() {
+            Crontab::do_something();
+        } );
     }
 
     /**
      * 运行任务
-     * @param $interval
      * @return bool
      */
-    static public function do_something($interval)
+    static public function do_something()
     {
 
         //是否设置了延时执行

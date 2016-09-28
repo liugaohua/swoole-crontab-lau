@@ -79,11 +79,10 @@ class LoadTasksByMysqli
         echo strlen( $sql ).PHP_EOL;
 //        print_r( self::$link );
         echo 'threadId:' . self::$link->thread_id . PHP_EOL;
-
-        echo PHP_EOL;
-        $this->query( 'set global max_allowed_packet = 50*1024*1024' );
+        Main::log_write( 'threadId:' . self::$link->thread_id . PHP_EOL );
+        #$this->query( 'set global max_allowed_packet = 50*1024*1024' );
         $result = $this->query( $sql );
-        Log::getInstance()->warning( 'connect handler.', array( self::$link ) );
+        Log::info( 'connect handler.', array( self::$link ) );
         $data = array();
         if( $result )
         {
@@ -144,14 +143,14 @@ class LoadTasksByMysqli
                         continue;
                     }
                 }
-                Log::getInstance()->warning( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
+                Log::error( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
                 return false;
             }
             break;
         }
         if( !$res )
         {
-            Log::getInstance()->warning( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
+            Log::error( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
             return false;
         }
         if( is_bool( $res ) )
@@ -269,10 +268,11 @@ class LoadTasksByMysqli
         {
             self::$link = new mysqli( $this->config[ 'host' ], $this->config[ 'username' ], $this->config[ 'password' ], $this->config[ 'dbname' ], $this->config[ 'port' ] );
             print_r( self::$link );
+            Log::info( 'mysqli link.', array( self::$link ) );
         }
         if( mysqli_connect_errno() > 0 )
         {
-            Log::getInstance()->error( 'db connect error.', array( 'errorMessage' => mysqli_connect_error(), 'errorCode' => mysqli_connect_errno() ) );
+            Log::error( 'db connect error.', array( 'errorMessage' => mysqli_connect_error(), 'errorCode' => mysqli_connect_errno() ) );
             return;
         }
         mysqli_set_charset( self::$link, $this->config[ 'charset' ] );
@@ -298,11 +298,11 @@ class LoadTasksByMysqli
         }
         if( !self::$link )
         {
-            Log::getInstance()->warning( 'SQL Error.' . __CLASS__ , mysqli_errno( self::$link ) );
+            Log::error( 'SQL Error.' . __CLASS__ , array( mysqli_errno( self::$link ) ));
             return false;
         }
 
-        mysqli_select_db( self::$link, $db_config[ 'dbname' ] ) or Log::getInstance()->warning( "SQL Error. " . mysqli_error( self::$link ) );
+        mysqli_select_db( self::$link, $db_config[ 'dbname' ] ) or Log::error( "SQL Error. " . mysqli_error( self::$link ) );
         if( $db_config[ 'charset' ] )
         {
             mysqli_set_charset( self::$link, $this->config[ 'charset' ] ) or Log::getInstance()->warning( "SQL Error. " . mysqli_error( self::$link ) );
