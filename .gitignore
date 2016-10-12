@@ -4,3 +4,4 @@
 logs/*
 src/vendor/*
 *.log
+*pid
