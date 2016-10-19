@@ -22,6 +22,7 @@ class Process
 
         }
         //记录当前任务
+		if(1):
         Crontab::$task_list[$pid] = array(
             "start" => microtime(true),
             "id" => $id,
@@ -29,18 +30,18 @@ class Process
             "type" => "crontab",
             "process" =>$process,
         );
-//        Crontab::$serv->table->lock();
-        Crontab::$serv->table->set( 'xx' . "$pid",
-            array(
-                'name' => $task['taskname'],
-                'rule' => $task['rule'],
-                'cmd' => $task['args']['cmd'],
-                'unique' => $task['unique'],
-                'pid' => $pid,
-                'startTime' => microtime(true) ,//self::getMTime(microtime( true )),
-            )
-        );
-//        Crontab::$serv->table->unlock();
+		endif;
+		Crontab::$serv->table->set( 'xx' . "$pid",
+			$test = 
+			array(
+				'name' => (string)$task['taskname'],
+				'rule' => json_encode($task['rule']),
+				'cmd' => json_encode($task['args']['cmd']),
+				'unique' => $task['unique'],
+				'pid' => $pid,
+				'startTime' => microtime(true) ,//self::getMTime(microtime( true )),
+			)
+		);
 //        swoole_event_add($process->pipe, function ($pipe) use ($process) {
 //            $task = $process->read();
 //            list($pid, $sec) = explode(",", $task);

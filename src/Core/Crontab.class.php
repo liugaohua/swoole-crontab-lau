@@ -117,6 +117,7 @@ class Crontab
                 if( posix_kill( $pid, 0 ) )
                 {
                     #posix_kill( $pid, SIGKILL );
+                    posix_kill( $pid, SIGTERM );
                     posix_kill( $pid, SIGINT );
                     @unlink( self::$cron_pid_file );
                 }
@@ -378,9 +379,7 @@ class Crontab
                         Main::log_write("{$id} [Runtime:" . sprintf("%0.6f", $end - $start) . "]");
                         $task["process"]->close();//关闭进程
                         unset(self::$task_list[$pid]);
-//                        self::$serv->table->lock();
                         self::$serv->table->del('xx'."$pid");
-//                        self::$serv->table->unlock();
                         if (isset(self::$unique_list[$id]) && self::$unique_list[$id] > 0) {
                             self::$unique_list[$id]--;
                         }
@@ -398,7 +397,14 @@ class Crontab
         });
 /*        swoole_process::signal(SIGTERM, function ($signo) {
             self::exit2p("收到退出信号,退出主进程");
-        });*/
+});
+
+ */
+		pcntl_signal(SIGTERM, function ($signo) {
+			echo '+++++++++++++++++++++++++++++';
+			file_put_contents('/tmp/aa.log' , 'wwwwww');
+			exit();
+		});
         swoole_process::signal(SIGKILL, function ($signo) {
             self::exit2p('kill');
         });

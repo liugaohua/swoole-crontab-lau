@@ -111,6 +111,7 @@ class Request
                         'stat'=> $this->_http->stats(),
                         'connections' => $this->_http->connections,
                         'setting' => $this->_http->setting,
+						'count' => count( $this->_http->table ),
                     );
             }
         }
