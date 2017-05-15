@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @deprecated 
  * Created by PhpStorm.
  * User:  ClownFish 187231450@qq.com
  * Date: 15-11-4
@@ -42,7 +43,6 @@ class Worker
         $this->workers["redis"] = $redis;
         $process = new swoole_process(array($this, "run"));
         if (!($pid = $process->start())) {
-            Main::log_write("---------------------------");
         }
         //记录当前任务
         Crontab::$task_list[$pid] = array(
@@ -78,8 +78,8 @@ class Worker
      */
     public function autoload($class)
     {
-        include(ROOT_PATH . "worker/WorkerBase.class.php");
-        $file = ROOT_PATH . "worker/" . $class . "Worker" . ".class.php";
+        include(ROOT_PATH . "Worker/WorkerBase.class.php");
+        $file = ROOT_PATH . "Worker/" . $class . "Worker" . ".class.php";
         if (file_exists($file)) {
             include($file);
         } else {

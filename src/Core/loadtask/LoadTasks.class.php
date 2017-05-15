@@ -20,7 +20,6 @@ class LoadTasks
                 break;
             case 'mysqli':
                 $this->handle = new LoadTasksByMysqli( $params );
-                echo '--------------------------------'.PHP_EOL;
                 break;
             default:
                 #$this->handle =  new LoadTasksByFile($params);

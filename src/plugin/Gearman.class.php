@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @deprecated 
  * Created by PhpStorm.
  * User: ClownFish 187231450@qq.com
  * Date: 14-12-27

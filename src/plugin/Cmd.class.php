@@ -13,14 +13,17 @@ class  Cmd extends  PluginBase
     {
         $cmd = $task["cmd"];
         $status = 0;
-        Main::log_write('##### ' . $cmd .' '. posix_getpid() );
         exec($cmd, $output, $status);
-        Main::log_write($cmd . ",已执行.status:" . $status . ' , pid:' . posix_getpid() );
-        if( preg_match( '#method=([\w.]+)#', $cmd, $method ) && !empty( $method[1] ))
+        $currentPid = posix_getpid();
+        Main::cronLog( "[$cmd], 已执行, status:" . $status . ', pid:' . $currentPid );
+        if( Main::getConfig( 'isMethodLog' ) )
         {
-            Main::log( $method[1], ( $output ) );
+            if( preg_match( '#method=([\w.]+)#', $cmd, $method ) && !empty( $method[ 1 ] ) && !empty( $output ) )
+            {
+                Main::log( Main::getConfig( 'methodLogPath' ) . $method[ 1 ], "$currentPid#[ $cmd ]", $output );
+            }
         }
-        //sleep( rand( 1, 5));
-//        exit($status);
+        #exit(0);
+        return;
     }
 }

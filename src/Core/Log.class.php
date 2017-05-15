@@ -8,8 +8,6 @@
  */
 class Log
 {
-    public $level;
-    public $type;
     /**
      * @var
      */
@@ -18,88 +16,75 @@ class Log
      * @var
      */
     static $singleInstance;
-    static $channel = 'cron';
 
+    /**
+     * 日志缓冲
+     * @var array
+     */
+    public $_queue = array();
+
+    private $_flush = false;
+    
     function __construct()
     {
     }
 
-    private static function _init( $type )
+    public function log( $file, $message, $extra = array() )
     {
-        self::$logHandler = new Monolog\Logger( self::$channel );
-        self::$logHandler->pushHandler( new Monolog\Handler\StreamHandler( LOG_DIR . '/main.log', $type ) );
+        if( empty( $file ) && empty( $message ) && empty( $extra ) )
+        {
+            return;
+        }
+        $now = Common::getMTime();
+        $destination = $file . '_' . date( 'Y-m-d' ) . '.log';
+
+        if( !empty( $extra ) )
+        {
+            $message .= '; ';
+            $message .= json_encode( $extra, JSON_UNESCAPED_UNICODE );
+        }
+
+        $message = sprintf( '%s# %s' . PHP_EOL, $now, $message );
+        
+        if( Main::getConfig( 'debug' ) )
+        {
+            if( Crontab::$daemon )
+            {
+                file_put_contents( $destination, $message, FILE_APPEND );
+                if( filesize( $destination ) > 10485760 )
+                {//10M
+                    unlink( $destination );
+                }
+            }
+            else
+            {
+                echo $message;
+            }
+        }
+        else
+        {
+            $this->_queue[ $destination ][] = array(
+                'destination' => $destination,
+                'message' => $message,
+            );
+            if( count( $this->_queue ) > 10 || $this->_flush )
+            {
+                foreach( $this->_queue as $destination => $logs )
+                {
+                    if( filesize( $destination ) > 209715200 )
+                    { //200M
+                        rename( $destination, $destination . '.' . date( 'His' ) );
+                    }
+                    foreach( $logs as $message )
+                    {
+                        file_put_contents( $destination, $message, FILE_APPEND );
+                    }
+                }
+                $this->_queue = array();
+            }
+        }
     }
     
-    /**
-     * @param $message
-     * @param array $context
-     */
-    public static function warning( $message , $context = array())
-    {
-        self::_init( Monolog\Logger::WARNING );
-        if( empty( $message ) && empty( $context ) )
-        {
-            return;
-        }
-        self::$logHandler->warning( $message, $context );
-    }
-
-    /**
-     * @param $message
-     * @param array $context
-     */
-    public static function error( $message, $context = array() )
-    {
-        self::_init( Monolog\Logger::ERROR );
-        if( empty( $message ) && empty( $context ) )
-        {
-            return;
-        }
-        self::$logHandler->error( $message, $context );
-    }
-
-    /**
-     * @param $message
-     * @param array $context
-     */
-    public static function debug( $message, $context = array() )
-    {
-        self::_init( Monolog\Logger::DEBUG );
-        if( empty( $message ) && empty( $context ) )
-        {
-            return;
-        }
-        self::$logHandler->debug( $message, $context );
-    }
-
-    /**
-     * @param $message
-     * @param array $context
-     */
-    public function notice( $message, $context = array() )
-    {
-        self::_init( Monolog\Logger::NOTICE );
-        if( empty( $message ) && empty( $context ) )
-        {
-            return;
-        }
-        self::$logHandler->notice( $message, $context );
-    }
-
-    /**
-     * @param $message
-     * @param array $context
-     */
-    public static function info( $message, $context = array() )
-    {
-        self::_init( Monolog\Logger::INFO );
-        if( empty( $message ) && empty( $context ) )
-        {
-            return;
-        }
-        self::$logHandler->info( $message, $context );
-    }
-
     /**
      * @return Log|null
      */

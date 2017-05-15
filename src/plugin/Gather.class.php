@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @deprecated 
  * Created by PhpStorm.
  * User: vic
  * Date: 15-11-9

@@ -36,14 +36,31 @@ class LoadTasksByMysqli
     protected $config = array();
 
     /**
+     * 任务配置列表 
+     */
+    const TABLE_NAME = 'crontab';
+
+    /**
+     * 主机任务关联表
+     */
+    const HOST_CRON_RELATED = 'host_cron';
+
+    /**
      * LoadTasksByMysqli constructor.
      * @param string $params
      */
     function __construct( $params = "" )
     {
-        echo '========================================'.PHP_EOL;
         $this->config = $this->getDbConfig();
         $this->init();
+    }
+
+    /**
+     * @return LoadTasksByMysqli
+     */
+    public static function getInstance()
+    {
+        return new self();
     }
 
     /**
@@ -52,7 +69,7 @@ class LoadTasksByMysqli
     private function init()
     {
         $this->connectDB();
-        $sql = "SELECT count(*) as total FROM information_schema.TABLES WHERE table_name = 'crontab' AND TABLE_SCHEMA = '{$this->config['dbname']}'";
+        $sql = "SELECT count(*) as total FROM information_schema.TABLES WHERE table_name = '" . self::TABLE_NAME . "' AND TABLE_SCHEMA = '{$this->config['dbname']}'";
         $data = $this->find( $sql );
 
         if( !empty( $data ) && intval( $data[ "total" ] ) <= 0 )
@@ -60,11 +77,11 @@ class LoadTasksByMysqli
             $stmt = mysqli_query( self::$link, $this->createTable );
             if( $stmt )
             {
-                Main::log_write( "执行sql:" . $this->createTable . "执行成功" );
+                Main::dbLog( "执行sql:" . $this->createTable . "执行成功" );
             }
             else
             {
-                Main::log_write( "执行sql:" . $this->createTable . "执行失败" );
+                Main::dbLog( "执行sql:" . $this->createTable . "执行失败" );
             }
         }
     }
@@ -73,16 +90,12 @@ class LoadTasksByMysqli
      * @param $sql
      * @return array|null
      */
-    protected function findAll( $sql )
+    public function findAll( $sql )
     {
-        echo $sql . PHP_EOL;
-        echo strlen( $sql ).PHP_EOL;
-//        print_r( self::$link );
-        echo 'threadId:' . self::$link->thread_id . PHP_EOL;
-        Main::log_write( 'threadId:' . self::$link->thread_id . PHP_EOL );
+        Main::dbLog( 'threadId:' . self::$link->thread_id );
         #$this->query( 'set global max_allowed_packet = 50*1024*1024' );
         $result = $this->query( $sql );
-        Log::info( 'connect handler.', array( self::$link ) );
+        Main::dbLog( 'connect handler.', array( self::$link ) );
         $data = array();
         if( $result )
         {
@@ -122,11 +135,17 @@ class LoadTasksByMysqli
         }
     }
 
+    public function getLastId()
+    {
+        return mysqli_insert_id( self::$link );
+    }
+
     /**
      * @param $sql
      * @return bool|mysqli_result
+     * @throws Exception
      */
-    private function query( $sql )
+    public function query( $sql )
     {
         $res = false;
         for( $i = 0; $i < 2; $i++ )
@@ -143,21 +162,21 @@ class LoadTasksByMysqli
                         continue;
                     }
                 }
-                Log::error( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
-                return false;
+                Main::dbLog( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
+                throw new Exception( 'SQL error.' . $this->errorMessage( $sql ), mysqli_errno( self::$link ) );
             }
             break;
         }
         if( !$res )
         {
-            Log::error( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
-            return false;
+            Main::dbLog( __CLASS__ . " SQL Error. " . $this->errorMessage( $sql ) );
+            throw new Exception( 'SQL error.' . $this->errorMessage( $sql ), mysqli_errno( self::$link ) );
         }
+        Main::dbLog( $sql );
         if( is_bool( $res ) )
         {
             return $res;
         }
-
 
         #################
         /*        $result = mysqli_query( self::$link, $sql );
@@ -181,7 +200,7 @@ class LoadTasksByMysqli
 
     function errorMessage($sql)
     {
-        return mysqli_error( self::$link ) . "<hr />$sql<hr />MySQL Server: {$this->config['host']}:{$this->config['port']}";
+        return mysqli_error( self::$link ) . "[ $sql ] MySQL Server: {$this->config['host']}:{$this->config['port']}";
     }
 
 
@@ -189,7 +208,7 @@ class LoadTasksByMysqli
      * @param $sql
      * @return array|null
      */
-    private function find( $sql )
+    public function find( $sql )
     {
         $result = $this->query( $sql );
 
@@ -202,6 +221,15 @@ class LoadTasksByMysqli
         return $data;
     }
 
+    public function getTask( $id )
+    {
+        $this->connectDB();
+        
+        $id = (int)$id;
+        $sql = "select * from `" . self::TABLE_NAME . "` where `id`={$id} ORDER BY `updatetime` DESC";
+        return $this->find( $sql );
+    }
+    
     /**
      * 返回格式化好的任务配置
      * @return array
@@ -217,12 +245,30 @@ class LoadTasksByMysqli
      */
     protected function loadTasks()
     {
-        echo __CLASS__ . ' ## ' . __FUNCTION__ . '####################' . posix_getpid().PHP_EOL;
         $this->connectDB();
-        $sql = "select * from `crontab` where `status`=0";
-        $data = $this->findAll( $sql );
-/*        self::$link = null;*/
-        $this->oriTasks = $data;
+        #$sql = "select * from `" . self::TABLE_NAME . "` where `status`=1";
+        $conditions = array(
+            'status' => 1,
+        );
+        if( strlen( $localIpHost = Common::getLocalIpHost() ) && ( $localIpHost = ip2long( $localIpHost ) ) )
+        {
+            $conditions['ipHost'] = $localIpHost;
+            $hostCronTable = self::HOST_CRON_RELATED;
+            $cronTable = self::TABLE_NAME;
+            $sql = "SELECT " . Common::getJoinField() . " FROM `{$hostCronTable}` LEFT JOIN `{$cronTable}` ON {$hostCronTable}.id={$cronTable}.id WHERE {$hostCronTable}.ipHost={$localIpHost} AND {$cronTable}.status=1 ORDER BY id ASC , ipHost ASC";
+            $data = LoadTasksByMysqli::getInstance()->findAll( $sql );
+            $this->oriTasks = $data;
+        }
+        else
+        {
+            $sql = SQLBuilder::buildSelectSQL(
+                self::TABLE_NAME ,
+                array(),
+                $conditions
+            );
+            $data = $this->findAll( $sql );
+            $this->oriTasks = $data;
+        }
     }
 
     /**
@@ -242,17 +288,24 @@ class LoadTasksByMysqli
                     $rule = $val[ "rule" ];
                 }
 
-                $args = json_decode( $val[ "args" ], true );
-                if( empty( $args ) )
+                if( empty( $rule ) )
                 {
                     continue;
                 }
-                $tasks[ $val[ "taskid" ] . $val[ "id" ] ] = array(
-                    "taskname" => $val[ "taskname" ],
-                    "rule" => $rule,
-                    "unique" => $val[ "unique" ],
-                    "execute" => $val[ "execute" ],
-                    "args" => $args,
+
+                $args = json_decode( $val[ "args" ], true );
+                if( empty( $args ) || empty( $args[ 'cmd' ] ) )
+                {
+                    continue;
+                }
+                $tasks[  $val[ 'id' ] ] = array(
+                    'id' => $val[ 'id' ],
+                    'taskid' => $val[ 'taskid' ],
+                    'taskname' => $val[ 'taskname' ],
+                    'rule' => $rule,
+                    'unique' => $val[ 'unique' ],
+                    'execute' => $val[ 'execute' ],
+                    'args' => $args,
                 );
             }
         }
@@ -267,12 +320,11 @@ class LoadTasksByMysqli
         if( !self::$link )
         {
             self::$link = new mysqli( $this->config[ 'host' ], $this->config[ 'username' ], $this->config[ 'password' ], $this->config[ 'dbname' ], $this->config[ 'port' ] );
-            print_r( self::$link );
-            Log::info( 'mysqli link.', array( self::$link ) );
+            Main::dbLog( 'mysqli link.', array( self::$link ) );
         }
         if( mysqli_connect_errno() > 0 )
         {
-            Log::error( 'db connect error.', array( 'errorMessage' => mysqli_connect_error(), 'errorCode' => mysqli_connect_errno() ) );
+            Main::dbLog( 'db connect error.', array( 'errorMessage' => mysqli_connect_error(), 'errorCode' => mysqli_connect_errno() ) );
             return;
         }
         mysqli_set_charset( self::$link, $this->config[ 'charset' ] );
@@ -284,6 +336,7 @@ class LoadTasksByMysqli
 
     /**
      * @return bool
+     * @throws Exception
      */
     protected function connectDB()
     {
@@ -298,14 +351,14 @@ class LoadTasksByMysqli
         }
         if( !self::$link )
         {
-            Log::error( 'SQL Error.' . __CLASS__ , array( mysqli_errno( self::$link ) ));
-            return false;
+            Main::dbLog( 'mysqli connect error.' . __CLASS__ , array( mysqli_errno( self::$link ) ));
+            throw new Exception( 'mysqli connect error.', mysqli_errno( self::$link ) );
         }
 
-        mysqli_select_db( self::$link, $db_config[ 'dbname' ] ) or Log::error( "SQL Error. " . mysqli_error( self::$link ) );
+        mysqli_select_db( self::$link, $db_config[ 'dbname' ] ) or Main::dbLog( "mysqli connect select db Error. " . mysqli_error( self::$link ) );
         if( $db_config[ 'charset' ] )
         {
-            mysqli_set_charset( self::$link, $this->config[ 'charset' ] ) or Log::getInstance()->warning( "SQL Error. " . mysqli_error( self::$link ) );
+            mysqli_set_charset( self::$link, $this->config[ 'charset' ] ) or Main::dbLog( "mysqli connect set charset Error. " . mysqli_error( self::$link ) );
         }
         return true;
     }
@@ -316,13 +369,7 @@ class LoadTasksByMysqli
      */
     protected function getDbConfig()
     {
-        $config = include( ROOT_PATH . "config/config.php" );
-        if( empty( $config ) || !isset( $config[ "mysql" ] ) )
-        {
-            Main::log_write( "mysql config not found" );
-            exit();
-        }
-        return $config[ "mysql" ];
+        return Main::getConfig( 'mysql' );
     }
 
     /**

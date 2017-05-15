@@ -36,7 +36,6 @@ class EasyDB extends PDO{
             echo '</pre>';
             exit();
         }
-        print_r( $this );
     }
 
     /*
